@@ -416,29 +416,21 @@
             transform: translateY(-2px);
         }
 
-        /* Social Sharing Buttons - IMPROVED WITH AUTO-HIDE */
+        /* Social Sharing Buttons - SIMPLIFIED: Show on hover only */
         .share-buttons {
             position: fixed;
-            left: 20px;
+            left: -50px;
             top: 50%;
             transform: translateY(-50%);
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
             z-index: 900;
-            opacity: 0.8;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            pointer-events: all;
-        }
-
-        .share-buttons.hidden {
-            opacity: 0;
-            transform: translateY(-50%) translateX(-100px);
-            pointer-events: none;
+            transition: left 0.3s ease;
         }
 
         .share-buttons:hover {
-            opacity: 1;
+            left: 20px;
         }
 
         .share-btn {
@@ -1766,7 +1758,7 @@
             <div class="footer-grid fade-in">
                 <div class="footer-section">
                     <h3>Get in Touch</h3>
-                    <a href="mailto:info@heartofthegodbearer.org">✉ info@heartofthegodbearer.org</a>
+                    <a href="/cdn-cgi/l/email-protection#89e0e7efe6c9e1ece8fbfde6effde1eceee6edebece8fbecfba7e6fbee">✉ <span class="__cf_email__" data-cfemail="650c0b030a250d000417110a03110d00020a010700041700174b0a1702">[email&#160;protected]</span></a>
                     <a href="tel:+15551234567">📞 (555) 123-4567</a>
                     <p>Questions? Concerns? Just want to chat about the convocation? We're here to help!</p>
                 </div>
@@ -1792,7 +1784,7 @@
     <!-- =====================================================
          JAVASCRIPT - Enhanced interactions and functionality
          ===================================================== -->
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Enhanced smooth scrolling with offset for fixed header
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1850,46 +1842,6 @@
 
         window.addEventListener('scroll', updateProgressBar);
 
-        // INTELLIGENT AUTO-HIDE FOR SOCIAL BUTTONS
-        function checkShareButtonsOverlap() {
-            const shareButtons = document.getElementById('shareButtons');
-            const shareRect = shareButtons.getBoundingClientRect();
-            
-            // Get all content elements that should trigger hiding
-            const contentElements = document.querySelectorAll('.about-content, .section-description, .hero-content, p, h1, h2, h3, .day-card, .feature-card, .practical-card');
-            
-            let overlapping = false;
-            
-            contentElements.forEach(element => {
-                const elemRect = element.getBoundingClientRect();
-                
-                // Check if elements overlap
-                if (!(elemRect.right < shareRect.left || 
-                      elemRect.left > shareRect.right || 
-                      elemRect.bottom < shareRect.top || 
-                      elemRect.top > shareRect.bottom)) {
-                    
-                    // Additional check: only hide if there's meaningful text content visible
-                    const text = element.textContent.trim();
-                    if (text.length > 20) { // Only consider elements with substantial text
-                        overlapping = true;
-                    }
-                }
-            });
-            
-            // Toggle hidden class based on overlap
-            if (overlapping) {
-                shareButtons.classList.add('hidden');
-            } else {
-                shareButtons.classList.remove('hidden');
-            }
-        }
-
-        // Check on scroll and on load
-        window.addEventListener('scroll', checkShareButtonsOverlap);
-        window.addEventListener('resize', checkShareButtonsOverlap);
-        window.addEventListener('load', checkShareButtonsOverlap);
-
         // Enhanced intersection observer for smooth animations
         const observerOptions = {
             threshold: 0.15,
@@ -1904,8 +1856,6 @@
                     }, 50);
                 }
             });
-            // Check share buttons after animations
-            setTimeout(checkShareButtonsOverlap, 100);
         }, observerOptions);
 
         // Observe all fade-in elements with controlled stagger
@@ -2066,9 +2016,6 @@
                     el.classList.add('visible');
                 }
             });
-            
-            // Initial check for share buttons
-            setTimeout(checkShareButtonsOverlap, 500);
         });
     </script>
 </body>
