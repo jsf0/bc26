@@ -9,11 +9,8 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;1,400&display=swap');
         
-        /* =====================================================
-           CSS VARIABLES - Easy to modify colors and spacing
-           ===================================================== */
+        /* CSS VARIABLES */
         :root {
-            /* Colors from the Theotokos icon */
             --icon-gold: #D4AF37;
             --icon-gold-light: #E6C55A;
             --icon-blue-deep: #1E3A8A;
@@ -23,27 +20,18 @@
             --soft-gray: #F8FAFC;
             --text-dark: #1F2937;
             --text-light: #F9FAFB;
-            
-            /* Typography */
             --font-heading: 'Lora', serif;
             --font-body: 'Source Sans Pro', sans-serif;
-            
-            /* Spacing system */
             --space-xs: 0.5rem;
             --space-sm: 1rem;
             --space-md: 2rem;
             --space-lg: 4rem;
             --space-xl: 6rem;
-            
-            /* Shadows */
             --shadow-soft: 0 4px 20px rgba(0,0,0, 0.08);
             --shadow-medium: 0 8px 30px rgba(0,0,0, 0.12);
             --shadow-strong: 0 15px 40px rgba(30, 58, 138, 0.3);
         }
 
-        /* =====================================================
-           RESET AND BASE STYLES
-           ===================================================== */
         * {
             margin: 0;
             padding: 0;
@@ -63,9 +51,31 @@
             padding: 0 var(--space-md);
         }
 
-        /* =====================================================
-           ANIMATIONS - Subtle and purposeful
-           ===================================================== */
+        /* ANNOUNCEMENT BANNER */
+        .announcement-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(135deg, var(--icon-gold), var(--icon-gold-light));
+            color: var(--icon-blue-deep);
+            padding: 0.8rem 0;
+            text-align: center;
+            z-index: 1002;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            animation: slideDown 0.5s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -75,11 +85,6 @@
                 opacity: 1;
                 transform: translateY(0);
             }
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.02); }
         }
 
         .fade-in {
@@ -93,9 +98,71 @@
             transform: translateY(0);
         }
 
-        /* =====================================================
-           HEADER AND NAVIGATION
-           ===================================================== */
+        .announcement-banner-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            padding: 0 3rem;
+        }
+
+        .announcement-text {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .announcement-icon {
+            font-size: 1.2rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .banner-cta {
+            background: var(--icon-blue-deep);
+            color: var(--icon-gold);
+            padding: 0.5rem 1.2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .banner-cta:hover {
+            background: var(--icon-blue-medium);
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
+        }
+
+        .close-banner {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--icon-blue-deep);
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+            padding: 0.5rem;
+        }
+
+        .close-banner:hover {
+            opacity: 1;
+        }
+
+        body.banner-visible header {
+            top: 50px;
+        }
+
+        body.banner-visible .hero {
+            padding-top: 50px;
+        }
+
+        /* HEADER */
         header {
             position: fixed;
             width: 100%;
@@ -219,7 +286,6 @@
             transform: scale(1.1);
         }
 
-        /* Mobile Navigation */
         .mobile-nav {
             display: none;
             position: fixed;
@@ -264,9 +330,7 @@
             cursor: pointer;
         }
 
-        /* =====================================================
-           HERO SECTION
-           ===================================================== */
+        /* HERO */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -416,7 +480,6 @@
             transform: translateY(-2px);
         }
 
-        /* Social Sharing Buttons */
         .share-buttons {
             position: fixed;
             left: 20px;
@@ -456,9 +519,7 @@
             transform: translateX(5px) scale(1.1);
         }
 
-        /* =====================================================
-           SECTIONS - Layout and Typography
-           ===================================================== */
+        /* SECTIONS */
         .section {
             padding: var(--space-lg) 0;
             position: relative;
@@ -513,9 +574,7 @@
             line-height: 1.7;
         }
 
-        /* =====================================================
-           ABOUT SECTION
-           ===================================================== */
+        /* ABOUT SECTION */
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -569,9 +628,7 @@
             object-fit: cover;
         }
 
-        /* =====================================================
-           SCHEDULE SECTION
-           ===================================================== */
+        /* SCHEDULE SECTION */
         .schedule-intro {
             display: grid;
             grid-template-columns: 2fr 1fr;
@@ -695,19 +752,7 @@
             color: var(--text-dark);
         }
 
-        .schedule-note {
-            background: rgba(212, 175, 55, 0.1);
-            border: 1px solid var(--icon-gold);
-            border-radius: 16px;
-            padding: var(--space-md);
-            text-align: center;
-            font-style: italic;
-            line-height: 1.7;
-        }
-
-        /* =====================================================
-           FEATURES SECTION
-           ===================================================== */
+        /* FEATURES SECTION */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -748,21 +793,6 @@
             border-color: var(--icon-gold);
         }
 
-        .feature-image {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 1.5rem;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: var(--shadow-soft);
-        }
-
-        .feature-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
         .feature-title {
             font-family: var(--font-heading);
             font-size: 1.4rem;
@@ -776,66 +806,12 @@
             font-size: 1.05rem;
         }
 
-        /* =====================================================
-           SPEAKERS SECTION
-           ===================================================== */
+        /* SPEAKERS SECTION */
         .speakers-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: var(--space-lg);
             margin-bottom: var(--space-lg);
-        }
-
-        .speaker-card {
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(212, 175, 55, 0.5);
-            border-radius: 16px;
-            padding: var(--space-lg);
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .speaker-card:hover {
-            transform: translateY(-8px);
-            background: rgba(255,255,255,0.2);
-            border-color: var(--icon-gold);
-        }
-
-        .speaker-photo {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 1.5rem;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 3px solid var(--icon-gold);
-            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
-        }
-
-        .speaker-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .speaker-name {
-            font-family: var(--font-heading);
-            color: var(--icon-gold);
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: var(--space-xs);
-        }
-
-        .speaker-title {
-            font-size: 1rem;
-            margin-bottom: var(--space-sm);
-            opacity: 0.9;
-        }
-
-        .speaker-bio {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            opacity: 0.8;
         }
 
         .speaker-placeholder {
@@ -881,22 +857,12 @@
             font-weight: bold;
         }
 
-        /* =====================================================
-           VENUE SECTION
-           ===================================================== */
+        /* VENUE SECTION */
         .venue-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: var(--space-lg);
             align-items: center;
-        }
-
-        .venue-info h3 {
-            font-family: var(--font-heading);
-            color: var(--icon-blue-deep);
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
         }
 
         .venue-info p {
@@ -922,32 +888,41 @@
             object-fit: cover;
         }
 
-        /* =====================================================
-           REGISTRATION SECTION
-           ===================================================== */
+        /* REGISTRATION SECTION - SIMPLIFIED */
         .registration {
             background: linear-gradient(135deg, var(--icon-blue-deep), var(--icon-blue-medium));
             color: var(--text-light);
             position: relative;
         }
 
-        .registration::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 400px;
-            height: 100%;
-            opacity: 0.1;
-            background-size: cover;
-            background-position: center;
-        }
-
         .reg-container {
-            max-width: 800px;
+            max-width: 700px;
             margin: 0 auto;
             position: relative;
             z-index: 2;
+            text-align: center;
+        }
+
+        .reg-info-box {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--icon-gold);
+            border-radius: 16px;
+            padding: var(--space-lg);
+            margin: var(--space-lg) 0;
+        }
+
+        .reg-info-box h3 {
+            font-family: var(--font-heading);
+            color: var(--icon-gold);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .reg-info-box p {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
         }
 
         .reg-form {
@@ -956,22 +931,11 @@
             border: 1px solid rgba(255,255,255,0.3);
             border-radius: 16px;
             padding: var(--space-lg);
-            margin-top: var(--space-lg);
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--space-md);
-            margin-bottom: var(--space-md);
         }
 
         .form-group {
             margin-bottom: var(--space-md);
-        }
-
-        .form-group.full-width {
-            grid-column: 1 / -1;
+            text-align: left;
         }
 
         .form-label {
@@ -982,7 +946,7 @@
             color: var(--icon-gold);
         }
 
-        .form-input, .form-select {
+        .form-input {
             width: 100%;
             padding: 1rem;
             border: 2px solid rgba(255, 255, 255, 0.5);
@@ -994,7 +958,7 @@
             transition: all 0.3s ease;
         }
 
-        .form-input:focus, .form-select:focus {
+        .form-input:focus {
             outline: none;
             border-color: var(--icon-gold);
             background: rgba(255, 255, 255, 0.15);
@@ -1004,21 +968,6 @@
 
         .form-input::placeholder {
             color: rgba(255, 255, 255, 0.6);
-            font-style: normal;
-        }
-
-        .form-select {
-            cursor: pointer;
-        }
-
-        .form-select option {
-            background: var(--icon-blue-deep);
-            color: white;
-        }
-
-        .form-textarea {
-            resize: vertical;
-            min-height: 120px;
         }
 
         .submit-btn {
@@ -1034,23 +983,6 @@
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .submit-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .submit-btn:hover::before {
-            left: 100%;
         }
 
         .submit-btn:hover {
@@ -1059,9 +991,7 @@
             box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
         }
 
-        /* =====================================================
-           PRACTICAL SECTION
-           ===================================================== */
+        /* PRACTICAL SECTION */
         .practical-intro {
             display: grid;
             grid-template-columns: 2fr 1fr;
@@ -1095,7 +1025,6 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: var(--space-md);
-            margin-bottom: var(--space-lg);
         }
 
         .practical-card {
@@ -1143,19 +1072,7 @@
             font-size: 1.05rem;
         }
 
-        .practical-note {
-            background: rgba(212, 175, 55, 0.1);
-            border: 1px solid var(--icon-gold);
-            border-radius: 16px;
-            padding: 2.5rem;
-            text-align: center;
-            font-style: italic;
-            line-height: 1.7;
-        }
-
-        /* =====================================================
-           FOOTER
-           ===================================================== */
+        /* FOOTER */
         footer {
             background: #1e3a8a;
             color: white;
@@ -1203,7 +1120,6 @@
             font-style: italic;
         }
 
-        /* Progress Indicator */
         .progress-bar {
             position: fixed;
             top: 0;
@@ -1211,13 +1127,11 @@
             width: 0;
             height: 4px;
             background: linear-gradient(90deg, var(--icon-gold), var(--icon-gold-light));
-            z-index: 1001;
+            z-index: 1003;
             transition: width 0.3s ease;
         }
 
-        /* =====================================================
-           MOBILE RESPONSIVE
-           ===================================================== */
+        /* RESPONSIVE */
         @media (max-width: 768px) {
             .container {
                 padding: 0 var(--space-sm);
@@ -1236,12 +1150,18 @@
             .schedule-intro,
             .practical-intro {
                 grid-template-columns: 1fr;
-                gap: var(--space-lg);
             }
 
-            .form-grid {
-                grid-template-columns: 1fr;
-                gap: var(--space-sm);
+            .announcement-banner-content {
+                padding: 0 2rem;
+            }
+
+            .announcement-text {
+                font-size: 0.9rem;
+            }
+
+            .close-banner {
+                right: 0.5rem;
             }
 
             .cta-container {
@@ -1254,71 +1174,24 @@
                 text-align: center;
             }
 
-            .schedule-item {
-                grid-template-columns: 80px 1fr;
-            }
-
-            .section {
-                padding: var(--space-lg) 0;
-            }
-
-            .speakers-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .schedule-intro,
-            .practical-intro {
-                grid-template-columns: 1fr;
-            }
-
             .share-buttons {
                 display: none;
             }
-
-            /* Mobile-specific improvements */
-            .day-card {
-                margin-bottom: 1rem;
-            }
-
-            .hero-description {
-                font-size: 1.2rem;
-            }
-
-            .section-description {
-                font-size: 1.1rem;
-            }
-
-            .feature-card,
-            .practical-card {
-                padding: 1.5rem;
-            }
         }
-
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 1.3rem;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .schedule-item {
-                grid-template-columns: auto 1fr;
-                gap: 0.5rem;
-            }
-        }
-
-        /* Removed dark mode to maintain consistent light theme */
     </style>
 </head>
-<body>
+<body class="banner-visible">
     <!-- Progress Bar -->
     <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Announcement Banner -->
+    <div class="announcement-banner" id="announcementBanner">
+        <div class="announcement-banner-content">
+            <span class="announcement-text">Full registration opens soon! Get updates first</span>
+            <a href="register-interest.html" class="banner-cta">Sign Up for Updates</a>
+        </div>
+        <button class="close-banner" id="closeBanner" aria-label="Close announcement">×</button>
+    </div>
 
     <!-- Social Sharing Buttons -->
     <div class="share-buttons">
@@ -1332,9 +1205,8 @@
             <i class="fas fa-envelope"></i>
         </a>
     </div>
-    <!-- =====================================================
-         HEADER - Logo and navigation
-         ===================================================== -->
+
+    <!-- HEADER -->
     <header id="header">
         <div class="container">
             <nav>
@@ -1347,7 +1219,7 @@
                     <li><a href="#schedule">Schedule</a></li>
                     <li><a href="#speakers">Speakers</a></li>
                     <li><a href="#venue">Venue</a></li>
-                    <li><a href="#register">Register</a></li>
+                    <li><a href="#register">Register Interest</a></li>
                     <li><a href="#practical">Travel</a></li>
                 </ul>
                 <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation menu">☰</button>
@@ -1362,15 +1234,12 @@
         <a href="#schedule">Schedule</a>
         <a href="#speakers">Speakers</a>
         <a href="#venue">Venue</a>
-        <a href="#register">Register</a>
+        <a href="#register">Register Interest</a>
         <a href="#practical">Travel</a>
     </nav>
 
-    <!-- =====================================================
-         HERO SECTION - Main headline and call to action
-         ===================================================== -->
+    <!-- HERO SECTION -->
     <section class="hero">
-        <!-- EASY TO REPLACE: Add your hero background image here -->
         <img src="/img/st-mary-external-1.jpg" alt="Background" class="hero-bg-image">
         
         <div class="hero-content">
@@ -1380,15 +1249,13 @@
             <p class="hero-timing">August 2026</p>
             <p class="hero-date">St. Mary Byzantine Catholic Church • Hillsborough, NJ</p>
             <div class="cta-container">
-                <a href="#register" class="cta-primary">Reserve Your Spot</a>
+                <a href="#register" class="cta-primary">Get Updates</a>
                 <a href="#about" class="cta-secondary">Learn More</a>
             </div>
         </div>
     </section>
 
-    <!-- =====================================================
-         ABOUT SECTION - Main description and mission
-         ===================================================== -->
+    <!-- ABOUT SECTION -->
     <section id="about" class="section section-dark">
         <div class="container">
             <div class="section-header fade-in">
@@ -1405,8 +1272,7 @@
 -Luke 1:38
                     </div>
                     
-                    <p>Anchored through liturgical prayer, we will discover how the ideal of monasticism, following after the Theotokos, provides the roadmap for living poverty, chastity, and obedience as the universal Christian call to detachment, wholeness, and surrender. Finally, we will learn practical ways to bear Christ to the world through renewal of our parishes and our daily life.</p>
-                    
+                    <p>Anchored through liturgical prayer, we will discover how the ideal of monasticism, following after the Theotokos, provides the roadmap for living poverty, chastity, and obedience as the universal Christian call to detachment, wholeness, and surrender.</p>
                 </div>
                 
                 <div class="church-image fade-in">
@@ -1416,9 +1282,7 @@
         </div>
     </section>
 
-    <!-- =====================================================
-         SCHEDULE SECTION - Weekend timeline
-         ===================================================== -->
+    <!-- SCHEDULE SECTION -->
     <section id="schedule" class="section section-accent">
         <div class="container">
             <div class="section-header fade-in">
@@ -1428,7 +1292,7 @@
 
             <div class="schedule-intro fade-in">
                 <div class="schedule-intro-text">
-                    <p>Every element flows from the rhythm of liturgical prayer. We begin and end each day with the hours, forming the backbone of our retreat, and supplemented by talks from our speakers and time together in fellowship.</p>
+                    <p>Every element flows from the rhythm of liturgical prayer. We begin and end each day with the hours, forming the backbone of our retreat, supplemented by talks from our speakers and time together in fellowship.</p>
                     <p>The Dormition Fast setting adds spiritual resonance as we prepare alongside the Church for celebrating Mary's dormition.</p>
                 </div>
                 <div class="schedule-intro-image">
@@ -1533,13 +1397,10 @@
                     </div>
                 </div>
             </div>
-            
         </div>
     </section>
 
-    <!-- =====================================================
-         FEATURES SECTION - Core themes and activities
-         ===================================================== -->
+    <!-- FEATURES SECTION -->
     <section id="features" class="section section-light">
         <div class="container">
             <div class="section-header fade-in">
@@ -1561,14 +1422,11 @@
                     <h3 class="feature-title">Community</h3>
                     <p class="feature-description">Saturday evening roundtable where young adults share authentic faith journeys and conversion stories in genuine community.</p>
                 </div>
-                
             </div>
         </div>
     </section>
 
-    <!-- =====================================================
-         SPEAKERS SECTION - Formation leaders
-         ===================================================== -->
+    <!-- SPEAKERS SECTION -->
     <section id="speakers" class="section section-dark">
         <div class="container">
             <div class="section-header fade-in">
@@ -1576,7 +1434,6 @@
             </div>
             
             <div class="speakers-grid">
-                <!-- PLACEHOLDER - Remove when you have real speakers -->
                 <div class="speaker-placeholder fade-in">
                     <h3>Amazing speakers coming soon!</h3>
                     <p>We're putting together an incredible lineup of speakers who bring the fruits of their prayer and teach us how monastic spirituality can be lived in any state of life.</p>
@@ -1589,25 +1446,11 @@
                         <li>Practical wisdom for authentic witness in today's world</li>
                     </ul>
                 </div>
-                
-                <!-- TEMPLATE FOR REAL SPEAKERS - Copy this when you have speaker info -->
-                <!-- 
-                <div class="speaker-card fade-in">
-                    <div class="speaker-photo">
-                        <img src="speaker-name.jpg" alt="Speaker Name" />
-                    </div>
-                    <div class="speaker-name">Dr. Jane Theologian</div>
-                    <div class="speaker-title">Professor of Eastern Christian Studies</div>
-                    <div class="speaker-bio">Brief bio about the speaker's background, expertise, and what they'll be discussing at the convocation...</div>
-                </div>
-                -->
             </div>
         </div>
     </section>
 
-    <!-- =====================================================
-         VENUE SECTION - St. Mary's Church details
-         ===================================================== -->
+    <!-- VENUE SECTION -->
     <section id="venue" class="section section-light">
         <div class="container">
             <div class="section-header fade-in">
@@ -1618,92 +1461,64 @@
                 <div class="venue-info fade-in">
                     <p><strong>Location:</strong> 1900 Brooks Boulevard, Hillsborough, New Jersey 08844<br>
                     <strong>Accommodations:</strong> Multiple lodging options within 10 minutes<br>
-                    <strong>Parking:</strong> Plenty of on-site parking<br>
+                    <strong>Parking:</strong> Plenty of on-site parking</p>
                 </div>
                 
                 <div class="venue-image fade-in">
-                    <!-- EASY TO REPLACE: Just change the src attribute below -->
                     <img src="/img/st-mary-external-1.jpg" alt="St. Mary Church Exterior with Golden Domes" />
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- =====================================================
-         REGISTRATION SECTION - Sign-up form
-         ===================================================== -->
+    <!-- REGISTRATION INTEREST SECTION -->
     <section id="register" class="section registration">
         <div class="container">
             <div class="reg-container">
                 <div class="section-header fade-in">
-                    <h2 class="section-title">Register <span class="accent">Now</span></h2>
+                    <div class="section-subtitle">Stay Updated</div>
+                    <h2 class="section-title">Register Your <span class="accent">Interest</span></h2>
+                    <p class="section-description">Full registration opens soon. Sign up now to be the first to know!</p>
                 </div>
                 
-                <form class="reg-form fade-in" id="registrationForm">
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="firstName" class="form-label">First Name *</label>
-                            <input type="text" id="firstName" name="firstName" class="form-input" placeholder="Your first name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="lastName" class="form-label">Last Name *</label>
-                            <input type="text" id="lastName" name="lastName" class="form-input" placeholder="Your last name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="form-label">Email Address *</label>
-                            <input type="email" id="email" name="email" class="form-input" placeholder="your.email@example.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone" class="form-label">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" class="form-input" placeholder="(555) 123-4567">
-                        </div>
-                        <div class="form-group">
-                            <label for="age" class="form-label">Age Range *</label>
-                            <select id="age" name="age" class="form-select" required>
-                                <option value="">Select your age range</option>
-                                <option value="18-22">18-22</option>
-                                <option value="23-27">23-27</option>
-                                <option value="28-32">28-32</option>
-                                <option value="33-35">33-35</option>
-                                <option value="35+">35+</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="accommodation" class="form-label">Accommodation Preference</label>
-                            <select id="accommodation" name="accommodation" class="form-select">
-                                <option value="">Choose your preference</option>
-                                <option value="hotel">Local hotel/motel</option>
-                                <option value="host-family">Host family</option>
-                                <option value="shared">Shared accommodation</option>
-                                <option value="other">I'll arrange my own</option>
-                            </select>
-                        </div>
+                <div class="reg-info-box fade-in">
+                    <h3>✨ Early Access Benefits</h3>
+                    <p>Be among the first to receive:</p>
+                    <p>• Speaker announcements and bios<br>
+                    • Detailed schedule and preparation materials<br>
+                    • Travel and accommodation recommendations<br>
+                    • Information on scholarships and group rates</p>
+                </div>
+                
+                <form class="reg-form fade-in" id="interestForm">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Your Name *</label>
+                        <input type="text" id="name" name="name" class="form-input" placeholder="Full name" required>
                     </div>
-                    
-                    <div class="form-group full-width">
-                        <label for="parish" class="form-label">Home Parish</label>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address *</label>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="your.email@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="parish" class="form-label">Home Parish (Optional)</label>
                         <input type="text" id="parish" name="parish" class="form-input" placeholder="Which parish community do you call home?">
                     </div>
-                    
-                    <div class="form-group full-width">
-                        <label for="motivation" class="form-label">What draws you to this convocation?</label>
-                        <textarea id="motivation" name="motivation" class="form-input form-textarea" placeholder="What are you hoping to discover or deepen in your faith journey?"></textarea>
-                    </div>
-                    
-                    <div class="form-group full-width">
-                        <label for="questions" class="form-label">Questions or Special Needs</label>
-                        <textarea id="questions" name="questions" class="form-input form-textarea" placeholder="Any questions about the convocation or special accommodations needed?"></textarea>
-                    </div>
-                    
-                    <button type="submit" class="submit-btn">Reserve My Spot</button>
+
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-envelope"></i> Keep Me Updated
+                    </button>
                 </form>
+
+                <div style="text-align: center; margin-top: 2rem; opacity: 0.9;">
+                    <p><a href="register-interest.html" style="color: var(--icon-gold); text-decoration: underline;">View full interest registration page →</a></p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- =====================================================
-         PRACTICAL SECTION - Travel and logistics
-         ===================================================== -->
+    <!-- PRACTICAL SECTION -->
     <section id="practical" class="section section-accent">
         <div class="container">
             <div class="section-header fade-in">
@@ -1716,13 +1531,11 @@
                     <p><strong>Need-based scholarships available</strong></p>
                 </div>
                 <div class="practical-intro-image">
-                    <!-- EASY TO REPLACE: Just change the src attribute below -->
                     <img src="/img/mosaic.jpg" alt="Travel and logistics illustration" />
                 </div>
             </div>
             
             <div class="practical-grid">
-                
                 <div class="practical-card fade-in">
                     <h3>Getting There</h3>
                     <p><strong>Closest Airport:</strong> Newark Liberty (EWR) - 45 minutes<br>
@@ -1747,13 +1560,10 @@
                     <strong>Group Rates:</strong> Special pricing for parish groups of 5+</p>
                 </div>
             </div>
-            
         </div>
     </section>
 
-    <!-- =====================================================
-         FOOTER - Contact and additional info
-         ===================================================== -->
+    <!-- FOOTER -->
     <footer>
         <div class="container">
             <div class="footer-grid fade-in">
@@ -1773,40 +1583,54 @@
                     <h3>Stay Connected</h3>
                     <a href="#" target="_blank">Follow on Instagram</a>
                     <a href="#" target="_blank">Join Facebook Community</a>
-                    <a href="#" target="_blank">Newsletter Updates</a>
+                    <a href="register-interest.html">Newsletter Updates</a>
                 </div>
             </div>
             <div class="footer-bottom fade-in">
-                <p>&copy; 2025 The Heart of the God-Bearer Convocation. A gathering for souls hungry for authentic encounter with our Lord, God, and Savior Jesus Christ through the intercession of the Theotokos.</p>
+                <p>&copy; 2025 The Heart of the God-Bearer Convocation.</p>
             </div>
         </div>
     </footer>
 
-    <!-- =====================================================
-         JAVASCRIPT - Enhanced interactions and functionality
-         ===================================================== -->
+    <!-- JAVASCRIPT -->
     <script>
-        // Enhanced smooth scrolling with offset for fixed header
+        // Banner functionality
+        const closeBanner = document.getElementById('closeBanner');
+        const announcementBanner = document.getElementById('announcementBanner');
+        
+        closeBanner.addEventListener('click', () => {
+            announcementBanner.style.display = 'none';
+            document.body.classList.remove('banner-visible');
+            localStorage.setItem('bannerClosed', 'true');
+        });
+
+        // Check if banner was previously closed
+        if (localStorage.getItem('bannerClosed') === 'true') {
+            announcementBanner.style.display = 'none';
+            document.body.classList.remove('banner-visible');
+        }
+
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     const headerHeight = document.getElementById('header').offsetHeight;
-                    const targetPosition = target.offsetTop - headerHeight - 20;
+                    const bannerHeight = announcementBanner.style.display === 'none' ? 0 : 50;
+                    const targetPosition = target.offsetTop - headerHeight - bannerHeight - 20;
                     
                     window.scrollTo({
                         top: targetPosition,
                         behavior: 'smooth'
                     });
                     
-                    // Close mobile nav if open
                     document.getElementById('mobileNav').classList.remove('active');
                 }
             });
         });
 
-        // Mobile menu functionality
+        // Mobile menu
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileNav = document.getElementById('mobileNav');
         const closeMobileNav = document.getElementById('closeMobileNav');
@@ -1819,14 +1643,12 @@
             mobileNav.classList.remove('active');
         });
 
-        // Close mobile nav when clicking on a link
         document.querySelectorAll('.mobile-nav a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileNav.classList.remove('active');
             });
         });
 
-        // Close mobile nav when clicking outside
         mobileNav.addEventListener('click', (e) => {
             if (e.target === mobileNav) {
                 mobileNav.classList.remove('active');
@@ -1843,7 +1665,7 @@
 
         window.addEventListener('scroll', updateProgressBar);
 
-        // Enhanced intersection observer for smooth animations
+        // Intersection observer
         const observerOptions = {
             threshold: 0.15,
             rootMargin: '0px 0px -30px 0px'
@@ -1859,16 +1681,14 @@
             });
         }, observerOptions);
 
-        // Observe all fade-in elements with controlled stagger
         document.querySelectorAll('.fade-in').forEach((el, index) => {
             observer.observe(el);
-            // Reduced stagger for smoother progression
             if (el.closest('.features-grid, .practical-grid, .schedule-grid')) {
                 el.style.transitionDelay = `${index * 0.05}s`;
             }
         });
 
-        // Enhanced header scroll effect
+        // Header scroll effect
         let lastScrollTop = 0;
         window.addEventListener('scroll', () => {
             const header = document.getElementById('header');
@@ -1880,7 +1700,6 @@
                 header.classList.remove('scrolled');
             }
             
-            // Hide/show header on scroll for mobile
             if (window.innerWidth <= 768) {
                 if (currentScroll > lastScrollTop && currentScroll > 100) {
                     header.style.transform = 'translateY(-100%)';
@@ -1892,75 +1711,69 @@
             lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
         });
 
-        // Enhanced form submission with better validation and feedback
-        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+        // Form submission
+        document.getElementById('interestForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
             const formData = new FormData(this);
             const submitBtn = this.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
+            const originalText = submitBtn.innerHTML;
             
-            // Simple validation
-            const required = this.querySelectorAll('[required]');
+            const name = document.getElementById('name');
+            const email = document.getElementById('email');
             let isValid = true;
             
-            required.forEach(field => {
-                if (!field.value.trim()) {
-                    field.style.borderColor = '#ef4444';
-                    isValid = false;
-                } else {
-                    field.style.borderColor = 'rgba(255, 255, 255, 0.3)';
-                }
-            });
+            if (!name.value.trim()) {
+                name.style.borderColor = '#ef4444';
+                isValid = false;
+            } else {
+                name.style.borderColor = 'rgba(255, 255, 255, 0.5)';
+            }
             
-            // Enhanced email validation
-            const email = document.getElementById('email');
-            if (email.value && !email.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+            if (!email.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
                 email.style.borderColor = '#ef4444';
                 isValid = false;
+            } else {
+                email.style.borderColor = 'rgba(255, 255, 255, 0.5)';
             }
             
             if (!isValid) {
-                submitBtn.textContent = 'Please fill required fields';
+                submitBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Please check your information';
                 submitBtn.style.background = '#ef4444';
                 setTimeout(() => {
-                    submitBtn.textContent = originalText;
+                    submitBtn.innerHTML = originalText;
                     submitBtn.style.background = 'var(--icon-gold)';
                 }, 3000);
                 return;
             }
             
-            // Simulate form submission
-            submitBtn.textContent = 'Submitting...';
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
             submitBtn.style.background = 'rgba(212, 175, 55, 0.7)';
             submitBtn.disabled = true;
             
             setTimeout(() => {
-                submitBtn.textContent = '✓ Registration Received!';
+                submitBtn.innerHTML = '✓ Success! Check your email';
                 submitBtn.style.background = '#10B981';
                 
                 setTimeout(() => {
-                    alert(`Thank you, ${formData.get('firstName')}! 🙏\n\nWe're thrilled you're joining us for "The Heart of the God-Bearer." You'll receive detailed information about the convocation, including speaker announcements, accommodation recommendations, and preparation materials in the coming weeks.\n\nMay the Theotokos pray for you as you prepare for this sacred journey!`);
+                    alert(`Thank you, ${formData.get('name')}! 🙏\n\nYou're now on our list! You'll receive updates about speakers, registration details, and everything you need to prepare for this transformative weekend.\n\nMay the Theotokos intercede for you!`);
                     this.reset();
-                    submitBtn.textContent = originalText;
+                    submitBtn.innerHTML = originalText;
                     submitBtn.style.background = 'var(--icon-gold)';
                     submitBtn.disabled = false;
                 }, 2000);
-            }, 2000);
+            }, 1500);
         });
 
-        // Social sharing functionality - FIXED
+        // Social sharing
         document.querySelector('.share-facebook').addEventListener('click', function(e) {
             e.preventDefault();
             const url = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent('Check out this amazing Byzantine Catholic young adult convocation - The Heart of the God-Bearer!');
             window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank', 'width=600,height=400');
         });
 
-        // Instagram sharing (copy link)
         document.querySelector('.share-instagram').addEventListener('click', function(e) {
             e.preventDefault();
-            // Instagram doesn't have direct sharing, so copy link instead
             navigator.clipboard.writeText(window.location.href).then(() => {
                 alert('Link copied! Share it on Instagram Stories or in your bio. 📷');
             }).catch(() => {
@@ -1968,48 +1781,22 @@
             });
         });
 
-        // Email sharing
         document.querySelector('.share-email').addEventListener('click', function(e) {
             e.preventDefault();
             const subject = encodeURIComponent('The Heart of the God-Bearer - Young Adult Convocation');
-            const body = encodeURIComponent(`I found this amazing Byzantine Catholic young adult convocation that looks incredible!\n\n"The Heart of the God-Bearer" - Discover your calling as a God-Bearer through the monastic heart of the Theotokos.\n\nCheck it out: ${window.location.href}`);
+            const body = encodeURIComponent(`Check out this amazing Byzantine Catholic young adult convocation!\n\n"The Heart of the God-Bearer" - Discover your calling as a God-Bearer through the monastic heart of the Theotokos.\n\n${window.location.href}`);
             window.location.href = `mailto:?subject=${subject}&body=${body}`;
         });
 
-        // Enhanced card hover effects
-        document.querySelectorAll('.day-card, .feature-card, .practical-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-8px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Keyboard accessibility improvements
+        // Keyboard accessibility
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 document.getElementById('mobileNav').classList.remove('active');
             }
         });
 
-        // Add loading animation to images
-        document.querySelectorAll('img').forEach(img => {
-            img.addEventListener('load', function() {
-                this.style.animation = 'fadeInUp 0.5s ease-out';
-            });
-        });
-
         // Initialize animations on load
         document.addEventListener('DOMContentLoaded', () => {
-            // Add staggered animation delays for grid items
-            const gridItems = document.querySelectorAll('.features-grid .feature-card, .practical-grid .practical-card, .schedule-grid .day-card');
-            gridItems.forEach((item, index) => {
-                item.style.animationDelay = `${index * 0.1}s`;
-            });
-
-            // Trigger initial fade-in for elements already in view
             const elementsInView = document.querySelectorAll('.fade-in');
             elementsInView.forEach(el => {
                 const rect = el.getBoundingClientRect();
