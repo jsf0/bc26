@@ -1998,29 +1998,6 @@
     		});
 		});
 
-        // Social sharing
-        document.querySelector('.share-facebook').addEventListener('click', function(e) {
-            e.preventDefault();
-            const url = encodeURIComponent(window.location.href);
-            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank', 'width=600,height=400');
-        });
-
-        document.querySelector('.share-instagram').addEventListener('click', function(e) {
-            e.preventDefault();
-            navigator.clipboard.writeText(window.location.href).then(() => {
-                alert('Link copied! Share it on Instagram Stories or in your bio. 📷');
-            }).catch(() => {
-                alert('Please copy this link to share: ' + window.location.href);
-            });
-        });
-
-        document.querySelector('.share-email').addEventListener('click', function(e) {
-            e.preventDefault();
-            const subject = encodeURIComponent('The Heart of the God-Bearer - Young Adult Convocation');
-            const body = encodeURIComponent(`Check out this amazing Byzantine Catholic young adult convocation!\n\n"The Heart of the God-Bearer" - Discover your calling as a God-Bearer through the monastic heart of the Theotokos.\n\n${window.location.href}`);
-            window.location.href = `mailto:?subject=${subject}&body=${body}`;
-        });
-
         // Keyboard accessibility
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
