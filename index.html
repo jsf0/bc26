@@ -1715,58 +1715,81 @@
         });
 
         // Form submission
-        document.getElementById('interestForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+		document.getElementById('interestForm').addEventListener('submit', function(e) {
+    		e.preventDefault();
+    
+    		const formData = new FormData(this);
+    		const submitBtn = this.querySelector('.submit-btn');
+    		const originalText = submitBtn.innerHTML;
+    
+    		// Validate
+    		const name = document.getElementById('name');
+    		const email = document.getElementById('email');
+    		let isValid = true;
+    
+    		if (!name.value.trim()) {
+        		name.style.borderColor = '#ef4444';
+        		isValid = false;
+    		} else {
+        		name.style.borderColor = 'rgba(255, 255, 255, 0.5)';
+    		}
+    
+    		if (!email.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+        		email.style.borderColor = '#ef4444';
+        		isValid = false;
+    		} else {
+        		email.style.borderColor = 'rgba(255, 255, 255, 0.5)';
+    		}
+    
+    		if (!isValid) {
+        		submitBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Please check your information';
+        		submitBtn.style.background = '#ef4444';
+        		setTimeout(() => {
+            		submitBtn.innerHTML = originalText;
+            		submitBtn.style.background = 'var(--icon-gold)';
+        		}, 3000);
+        		return;
+    		}
+    
+    		// Show submitting state
+    		submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+    		submitBtn.style.background = 'rgba(212, 175, 55, 0.7)';
+    		submitBtn.disabled = true;
+    
+    		// Actually submit to Formspree
+    		fetch(this.action, {
+        		method: 'POST',
+        		body: formData,
+        		headers: {
+            		'Accept': 'application/json'
+        		}
+    		})
+    		.then(response => {
+        		if (response.ok) {
+            		submitBtn.innerHTML = '✓ Success! Check your email';
+            		submitBtn.style.background = '#10B981';
             
-            const formData = new FormData(this);
-            const submitBtn = this.querySelector('.submit-btn');
-            const originalText = submitBtn.innerHTML;
-            
-            const name = document.getElementById('name');
-            const email = document.getElementById('email');
-            let isValid = true;
-            
-            if (!name.value.trim()) {
-                name.style.borderColor = '#ef4444';
-                isValid = false;
-            } else {
-                name.style.borderColor = 'rgba(255, 255, 255, 0.5)';
-            }
-            
-            if (!email.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
-                email.style.borderColor = '#ef4444';
-                isValid = false;
-            } else {
-                email.style.borderColor = 'rgba(255, 255, 255, 0.5)';
-            }
-            
-            if (!isValid) {
-                submitBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Please check your information';
-                submitBtn.style.background = '#ef4444';
-                setTimeout(() => {
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.style.background = 'var(--icon-gold)';
-                }, 3000);
-                return;
-            }
-            
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
-            submitBtn.style.background = 'rgba(212, 175, 55, 0.7)';
-            submitBtn.disabled = true;
-            
-            setTimeout(() => {
-                submitBtn.innerHTML = '✓ Success! Check your email';
-                submitBtn.style.background = '#10B981';
-                
-                setTimeout(() => {
-                    alert(`Thank you, ${formData.get('name')}! 🙏\n\nYou're now on our list! You'll receive updates about speakers, registration details, and everything you need to prepare for this transformative weekend.\n\nMay the Theotokos intercede for you!`);
-                    this.reset();
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.style.background = 'var(--icon-gold)';
-                    submitBtn.disabled = false;
-                }, 2000);
-            }, 1500);
-        });
+            		setTimeout(() => {
+                		alert(`Thank you, ${formData.get('name')}! 🙏\n\nYou're now on our list! You'll receive updates about speakers, registration details, and everything you need to prepare for this transformative weekend.\n\nMay the Theotokos intercede for you!`);
+                		this.reset();
+                		submitBtn.innerHTML = originalText;
+                		submitBtn.style.background = 'var(--icon-gold)';
+                		submitBtn.disabled = false;
+            		}, 1500);
+        		} else {
+            		throw new Error('Submission failed');
+        		}
+    		})
+    		.catch(error => {
+        		submitBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error - Please try again';
+        		submitBtn.style.background = '#ef4444';
+        		setTimeout(() => {
+            		submitBtn.innerHTML = originalText;
+            		submitBtn.style.background = 'var(--icon-gold)';
+            		submitBtn.disabled = false;
+        		}, 3000);
+    		});
+		});
 
         // Social sharing
         document.querySelector('.share-facebook').addEventListener('click', function(e) {
