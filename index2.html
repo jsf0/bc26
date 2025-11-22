@@ -1,0 +1,2086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Heart of the God-Bearer | Young Adult Convocation 2026</title>
+    <meta name="description" content="A transformative Byzantine Catholic young adult convocation exploring monastic spirituality through the Theotokos. July 31-August 2 2026 at St. Mary Byzantine Catholic Church, Hillsborough NJ.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;1,400&display=swap');
+        
+        /* CSS VARIABLES */
+        :root {
+            --icon-gold: #D4AF37;
+            --icon-gold-light: #E6C55A;
+            --icon-blue-deep: #1E3A8A;
+            --icon-blue-medium: #3B82F6;
+            --icon-blue-light: #93C5FD;
+            --warm-cream: #FDF6E3;
+            --soft-gray: #F8FAFC;
+            --text-dark: #1F2937;
+            --text-light: #F9FAFB;
+            --font-heading: 'Lora', serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 2rem;
+            --space-lg: 4rem;
+            --space-xl: 6rem;
+            --shadow-soft: 0 4px 20px rgba(0,0,0, 0.08);
+            --shadow-medium: 0 8px 30px rgba(0,0,0, 0.12);
+            --shadow-strong: 0 15px 40px rgba(30, 58, 138, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--warm-cream);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        /* ANNOUNCEMENT BANNER */
+        .announcement-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(135deg, var(--icon-gold), var(--icon-gold-light));
+            color: var(--icon-blue-deep);
+            padding: 0.8rem 0;
+            text-align: center;
+            z-index: 1002;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            animation: slideDown 0.5s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .announcement-banner-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            padding: 0 3rem;
+        }
+
+        .announcement-text {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .announcement-icon {
+            font-size: 1.2rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .banner-cta {
+            background: var(--icon-blue-deep);
+            color: var(--icon-gold);
+            padding: 0.5rem 1.2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .banner-cta:hover {
+            background: var(--icon-blue-medium);
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
+        }
+
+        .close-banner {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--icon-blue-deep);
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+            padding: 0.5rem;
+        }
+
+        .close-banner:hover {
+            opacity: 1;
+        }
+
+        body.banner-visible header {
+            top: 50px;
+        }
+
+        body.banner-visible .hero {
+            padding-top: 50px;
+        }
+
+        /* HEADER */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            padding: var(--space-sm) 0;
+        }
+
+        header.scrolled {
+            background: rgba(30, 58, 138, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid var(--icon-gold);
+            box-shadow: var(--shadow-soft);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--icon-gold);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.02);
+        }
+
+        .sacred-symbol {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, var(--icon-gold), var(--icon-gold-light));
+            border-radius: 50%;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .sacred-symbol:hover {
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        .sacred-symbol::before,
+        .sacred-symbol::after {
+            content: '';
+            position: absolute;
+            background: var(--warm-cream);
+            border-radius: 1px;
+        }
+
+        .sacred-symbol::before {
+            width: 16px;
+            height: 2px;
+            top: 13px;
+            left: 6px;
+        }
+
+        .sacred-symbol::after {
+            width: 2px;
+            height: 16px;
+            top: 6px;
+            left: 13px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: var(--space-md);
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 400;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--icon-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--icon-gold);
+            transform: translateY(-2px);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-btn:hover {
+            color: var(--icon-gold);
+            transform: scale(1.1);
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(30, 58, 138, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .mobile-nav.active {
+            display: flex;
+        }
+
+        .mobile-nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-family: var(--font-heading);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav a:hover {
+            color: var(--icon-gold);
+            transform: scale(1.1);
+        }
+
+        .close-mobile-nav {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            background: linear-gradient(135deg, var(--icon-blue-deep), var(--icon-blue-medium));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 70%, rgba(212, 175, 55, 0.15) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero-bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.2;
+            object-fit: cover;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-heading);
+            color: var(--icon-gold);
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: var(--space-sm);
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 500;
+            margin-bottom: var(--space-md);
+            line-height: 1.1;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .hero h1 .highlight {
+            font-weight: 600;
+            color: var(--icon-gold);
+        }
+
+        .hero-description {
+            font-size: 1.4rem;
+            font-style: italic;
+            margin-bottom: var(--space-sm);
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .hero-timing {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            margin-bottom: var(--space-xs);
+            opacity: 0.9;
+            color: var(--icon-gold);
+            font-weight: 500;
+            animation: fadeInUp 0.8s ease-out 0.7s both;
+        }
+
+        .hero-date {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease-out 0.8s both;
+        }
+
+        .cta-container {
+            animation: fadeInUp 0.8s ease-out 1s both;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            background: var(--icon-gold);
+            color: var(--icon-blue-deep);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-primary:hover::before {
+            left: 100%;
+        }
+
+        .cta-primary:hover {
+            background: var(--icon-gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .cta-secondary {
+            display: inline-block;
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+            font-weight: 400;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--icon-gold);
+            transform: translateY(-2px);
+        }
+
+        .share-buttons {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            z-index: 900;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .share-buttons:hover {
+            opacity: 1;
+        }
+
+        .share-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .share-facebook { background: #1877F2; }
+        .share-instagram { background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); }
+        .share-email { background: var(--icon-gold); }
+
+        .share-btn:hover {
+            transform: translateX(5px) scale(1.1);
+        }
+
+        /* SECTIONS */
+        .section {
+            padding: var(--space-lg) 0;
+            position: relative;
+        }
+
+        .section-dark {
+            background: linear-gradient(135deg, #2563EB, #60A5FA);
+            color: var(--text-light);
+        }
+
+        .section-light {
+            background: var(--warm-cream);
+            color: var(--text-dark);
+        }
+
+        .section-accent {
+            background: var(--soft-gray);
+            color: var(--text-dark);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-md);
+        }
+
+        .section-subtitle {
+            font-family: var(--font-heading);
+            color: var(--icon-gold);
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: var(--space-sm);
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .section-title .accent {
+            font-weight: 600;
+            color: var(--icon-gold);
+        }
+
+        .section-description {
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        /* ABOUT SECTION */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+            align-items: center;
+        }
+
+        .about-content {
+            font-size: 1.15rem;
+            line-height: 1.7;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content .highlight-box {
+            background: rgba(212, 175, 55, 0.1);
+            border-left: 4px solid var(--icon-gold);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            position: relative;
+        }
+
+        .about-content .highlight-box::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            font-size: 3rem;
+            color: var(--icon-gold);
+            line-height: 1;
+        }
+
+        .church-image {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-strong);
+            transition: all 0.3s ease;
+        }
+
+        .church-image:hover {
+            transform: scale(1.02);
+        }
+
+        .church-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        /* SCHEDULE SECTION */
+        .schedule-intro {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--space-lg);
+            align-items: center;
+            margin-bottom: var(--space-lg);
+        }
+
+        .schedule-intro-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .schedule-intro-text p {
+            margin-bottom: var(--space-sm);
+        }
+
+        .schedule-intro-image {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .schedule-intro-image img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+
+        .day-card {
+            background: white;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 16px;
+            padding: var(--space-md);
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .day-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--icon-gold), var(--icon-gold-light));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .day-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .day-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-medium);
+            border-color: var(--icon-gold);
+        }
+
+        .day-header {
+            text-align: center;
+            margin-bottom: var(--space-md);
+            padding-bottom: var(--space-sm);
+            border-bottom: 2px solid var(--icon-gold);
+        }
+
+        .day-header h3 {
+            font-family: var(--font-heading);
+            color: var(--icon-blue-deep);
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
+        }
+
+        .day-subtitle {
+            font-family: var(--font-heading);
+            color: var(--icon-gold);
+            font-style: italic;
+            font-size: 1rem;
+        }
+
+        .schedule-items {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .schedule-item {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: var(--space-sm);
+            align-items: start;
+            padding: var(--space-xs) 0;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+        }
+
+        .schedule-item:hover {
+            background: rgba(212, 175, 55, 0.08);
+            padding-left: var(--space-xs);
+            transform: translateX(5px);
+        }
+
+        .time {
+            font-weight: 600;
+            color: var(--icon-blue-deep);
+            font-size: 0.9rem;
+        }
+
+        .activity {
+            color: var(--text-dark);
+        }
+
+        /* FEATURES SECTION */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-md);
+        }
+
+        .feature-card {
+            background: white;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 16px;
+            padding: var(--space-lg);
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-soft);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--icon-gold), var(--icon-gold-light));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-medium);
+            border-color: var(--icon-gold);
+        }
+
+        .feature-title {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--icon-blue-deep);
+        }
+
+        .feature-description {
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+        /* SPEAKERS SECTION */
+        .speakers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--space-lg);
+            margin-bottom: var(--space-lg);
+        }
+
+        .speaker-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(212, 175, 55, 0.5);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .speaker-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--icon-gold);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .speaker-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .speaker-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--icon-gold);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+        }
+
+        .speaker-image {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .speaker-content {
+            padding: var(--space-md);
+        }
+
+        .speaker-name {
+            font-family: var(--font-heading);
+            color: var(--icon-gold);
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
+        }
+
+        .speaker-title {
+            color: rgba(255,255,255,0.8);
+            font-size: 1rem;
+            font-style: italic;
+            margin-bottom: var(--space-sm);
+        }
+
+        .speaker-bio {
+            color: rgba(255,255,255,0.9);
+            line-height: 1.6;
+            font-size: 1.05rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        .speaker-talk {
+            background: rgba(212, 175, 55, 0.1);
+            border-left: 3px solid var(--icon-gold);
+            padding: var(--space-sm);
+            border-radius: 0 8px 8px 0;
+            margin-top: var(--space-sm);
+        }
+
+        .speaker-talk-label {
+            font-family: var(--font-heading);
+            color: var(--icon-gold);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.3rem;
+        }
+
+        .speaker-talk-title {
+            color: rgba(255,255,255,0.95);
+            font-style: italic;
+            font-size: 1.05rem;
+            line-height: 1.5;
+        }
+
+        /* VENUE SECTION */
+        .venue-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+            align-items: center;
+        }
+
+        .venue-info p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .venue-image {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-strong);
+            transition: all 0.3s ease;
+        }
+
+        .venue-image:hover {
+            transform: scale(1.02);
+        }
+
+        .venue-image img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+        }
+
+        /* REGISTRATION SECTION - SIMPLIFIED */
+        .registration {
+            background: linear-gradient(135deg, var(--icon-blue-deep), var(--icon-blue-medium));
+            color: var(--text-light);
+            position: relative;
+        }
+
+        .reg-container {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .reg-info-box {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--icon-gold);
+            border-radius: 16px;
+            padding: var(--space-lg);
+            margin: var(--space-lg) 0;
+        }
+
+        .reg-info-box h3 {
+            font-family: var(--font-heading);
+            color: var(--icon-gold);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .reg-info-box p {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .reg-form {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 16px;
+            padding: var(--space-lg);
+        }
+
+        .form-group {
+            margin-bottom: var(--space-md);
+            text-align: left;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: var(--space-xs);
+            font-family: var(--font-heading);
+            font-weight: 600;
+            color: var(--icon-gold);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 8px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-family: var(--font-body);
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--icon-gold);
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+        }
+
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--icon-gold);
+            color: var(--icon-blue-deep);
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .submit-btn:hover {
+            background: var(--icon-gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        /* PRACTICAL SECTION */
+        .practical-intro {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--space-lg);
+            align-items: center;
+            margin-bottom: var(--space-lg);
+        }
+
+        .practical-intro-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .practical-intro-text p {
+            margin-bottom: var(--space-sm);
+        }
+
+        .practical-intro-image {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .practical-intro-image img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .practical-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-md);
+        }
+
+        .practical-card {
+            background: white;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 16px;
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .practical-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--icon-gold);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .practical-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .practical-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-medium);
+            border-color: var(--icon-gold);
+        }
+
+        .practical-card h3 {
+            font-family: var(--font-heading);
+            color: var(--icon-blue-deep);
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .practical-card p {
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+        /* =====================================================
+           SHARE SECTION - NEW!
+           ===================================================== */
+        .share-section {
+            background: linear-gradient(135deg, var(--icon-blue-deep), var(--icon-blue-medium));
+            color: var(--text-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .share-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 30%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .share-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .share-intro {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: var(--space-lg);
+            opacity: 0.95;
+        }
+
+        .share-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+
+        .share-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(212, 175, 55, 0.5);
+            border-radius: 16px;
+            padding: var(--space-lg);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .share-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--icon-gold);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .share-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .share-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255,255,255,0.2);
+            border-color: var(--icon-gold);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        }
+
+        .share-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: var(--icon-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--icon-blue-deep);
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .share-card:hover .share-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+        }
+
+        .share-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--icon-gold);
+        }
+
+        .share-card p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .share-card-btn {
+            display: inline-block;
+            background: var(--icon-gold);
+            color: var(--icon-blue-deep);
+            padding: 0.9rem 2rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .share-card-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .share-card-btn:hover::before {
+            left: 100%;
+        }
+
+        .share-card-btn:hover {
+            background: var(--icon-gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Social media specific buttons */
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .social-link.facebook { background: #1877F2; }
+        .social-link.instagram { background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); }
+
+        .social-link:hover {
+            transform: scale(1.15);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        /* FOOTER */
+        footer {
+            background: #1e3a8a;
+            color: white;
+            padding: var(--space-lg) 0 var(--space-md);
+            border-top: 2px solid var(--icon-gold);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+            margin-bottom: var(--space-lg);
+        }
+
+        .footer-section h3 {
+            font-family: var(--font-heading);
+            color: var(--icon-gold);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .footer-section a {
+            color: rgba(249, 250, 251, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+            margin-bottom: var(--space-xs);
+        }
+
+        .footer-section a:hover {
+            color: var(--icon-gold);
+            transform: translateX(5px);
+        }
+
+        .footer-section p {
+            margin-bottom: 0.8rem;
+            opacity: 0.8;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--space-md);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            opacity: 0.8;
+            font-style: italic;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--icon-gold), var(--icon-gold-light));
+            z-index: 1003;
+            transition: width 0.3s ease;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 var(--space-sm);
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .about-grid,
+            .venue-content,
+            .schedule-intro,
+            .practical-intro {
+                grid-template-columns: 1fr;
+            }
+
+            .announcement-banner-content {
+                padding: 0 2rem;
+            }
+
+            .announcement-text {
+                font-size: 0.9rem;
+            }
+
+            .close-banner {
+                right: 0.5rem;
+            }
+
+            .cta-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-primary, .cta-secondary {
+                width: 280px;
+                text-align: center;
+            }
+
+            .share-buttons {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="banner-visible">
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Announcement Banner -->
+    <div class="announcement-banner" id="announcementBanner">
+        <div class="announcement-banner-content">
+            <span class="announcement-text">Full registration opens soon! Get updates first</span>
+            <a href="#register" class="banner-cta">Sign Up for Updates</a>
+        </div>
+        <button class="close-banner" id="closeBanner" aria-label="Close announcement">×</button>
+    </div>
+
+    <!-- Social Sharing Buttons -->
+    <div class="share-buttons">
+        <a href="https://www.facebook.com/theosisinaction/" class="share-btn share-facebook" title="Share on Facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/theosisinaction/" class="share-btn share-instagram" title="Share on Instagram">
+            <i class="fab fa-instagram"></i>
+         </a>
+        <a href="mailto:theosisinaction@gmail.com" class="share-btn share-email" title="Share via Email">
+            <i class="fas fa-envelope"></i>
+        </a>
+    </div>
+
+    <!-- HEADER -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <div class="sacred-symbol"></div>
+                    Heart of the God-Bearer
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#schedule">Schedule</a></li>
+                    <li><a href="#speakers">Speakers</a></li>
+                    <li><a href="#venue">Venue</a></li>
+                    <li><a href="#register">Register Interest</a></li>
+                    <li><a href="#practical">Travel</a></li>
+					<li><a href="#share">Share</a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation menu">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobileNav">
+        <button class="close-mobile-nav" id="closeMobileNav">✕</button>
+        <a href="#about">About</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#speakers">Speakers</a>
+        <a href="#venue">Venue</a>
+        <a href="#register">Register Interest</a>
+        <a href="#practical">Travel</a>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <img src="/img/st-mary-external-1.jpg" alt="Background" class="hero-bg-image">
+        
+        <div class="hero-content">
+            <div class="hero-subtitle">Young Adult Convocation 2026</div>
+            <h1>The <span class="highlight">Heart</span> of the<br>God-Bearer</h1>
+            <p class="hero-description">Discover your calling as a God-Bearer through the monastic heart of the Theotokos</p>
+            <p class="hero-timing">July 31-August 2, 2026</p>
+            <p class="hero-date">St. Mary Byzantine Catholic Church • Hillsborough, NJ</p>
+            <div class="cta-container">
+                <a href="#register" class="cta-primary">Get Updates</a>
+                <a href="#about" class="cta-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section section-dark">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">More Than a <span class="accent">Retreat</span></h2>
+                <p class="section-description">This is about discovering your calling as a God-Bearer and living it boldly</p>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-content fade-in">
+                    <p>What does it mean to live with Mary's heart? To hold nothing back from God, no matter what your life looks like?</p>
+                    
+                    <div class="highlight-box">
+"Let it be done unto me according to your word."
+-Luke 1:38
+                    </div>
+                    <p>Join us for the 2026 Byzantine Catholic Young Adult Convocation, on July 31-August 2, where we will discover how her monastic heart can become ours.</p> 
+                    
+                </div>
+                
+                <div class="church-image fade-in">
+                    <img src="/img/st-mary-tetrapod.jpg" alt="Tetrapod at St. Mary Byzantine Catholic Church" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCHEDULE SECTION -->
+    <section id="schedule" class="section section-accent">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Three Days of <span class="accent">Transformation</span></h2>
+                <p class="section-description">Built around liturgical prayer, the heartbeat of monastic life</p>
+            </div>
+
+            <div class="schedule-intro fade-in">
+                <div class="schedule-intro-text">
+                    <p>Our weekend will take place at the beginning of the Dormition Fast, when the whole Church is turning towards the Theotokos. Through liturgical prayer and talks from our speakers, we will learn to say with her "Let it be done unto me, according to your word".</p>
+                </div>
+                <div class="schedule-intro-image">
+                    <img src="/img/st-mary-liturgy.jpg" alt="Divine Liturgy at St Mary's" />
+                </div>
+            </div>
+            
+            <div class="schedule-grid">
+                <div class="day-card fade-in">
+                    <div class="day-header">
+                        <h3>Friday Evening</h3>
+                    </div>
+                    <div class="schedule-items">
+                        <div class="schedule-item">
+                            <span class="time">4:30 PM</span>
+                            <span class="activity">Doors Open</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="time">5:00 PM</span>
+                            <span class="activity">Dinner, Sign-in, and Socialize</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="time">6:00 PM</span>
+                            <span class="activity">Talk</span>
+                        </div>
+						<div class="schedule-item">
+							<span class="time">7:00 PM</span>
+							<span class="activity">Compline</span>
+						</div>
+                    </div>
+                </div>
+                
+                <div class="day-card fade-in">
+                    <div class="day-header">
+                        <h3>Saturday</h3>
+                    </div>
+                    <div class="schedule-items">
+                        <div class="schedule-item">
+                            <span class="time">8:00 AM</span>
+                            <span class="activity">Breakfast</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="time">9:00 AM</span>
+                            <span class="activity">3rd Hour</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="time">10:30 AM</span>
+                            <span class="activity">Talk</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="time">12:00 PM</span>
+                            <span class="activity">6th Hour</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="time">12:30 PM</span>
+                            <span class="activity">Lunch</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="time">1:45 PM</span>
+                            <span class="activity">Talk</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="time">3:00 PM</span>
+                            <span class="activity">Break and Confessions</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="time">5:30 PM</span>
+                            <span class="activity">Vespers</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="time">6:30 PM</span>
+                            <span class="activity">Dinner</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="time">7:45 PM</span>
+                            <span class="activity">Bishop Q&A</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="time">9:00 PM</span>
+                            <span class="activity">Compline</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="day-card fade-in">
+                    <div class="day-header">
+                        <h3>Sunday</h3>
+                    </div>
+                    <div class="schedule-items">
+                        <div class="schedule-item">
+                            <span class="time">8:30 AM</span>
+                            <span class="activity">Divine Liturgy</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="time">10:00 AM</span>
+                            <span class="activity">Breakfast</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="time">11:00 AM</span>
+                            <span class="activity">Send-off Talk</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section id="features" class="section section-light">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Three <span class="accent">Pillars</span></h2>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <h3 class="feature-title">Liturgical Hours</h3>
+                    <p class="feature-description">Pray with the Church with 3rd, 6th, and 9th hours, Vespers, and Compline forming the core of our weekend.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <h3 class="feature-title">Formation Talks</h3>
+                    <p class="feature-description">Three substantial talks exploring the Theotokos as the model monastic heart and your calling to be a God-bearer in the world.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <h3 class="feature-title">Community</h3>
+                    <p class="feature-description">Connect with like-minded young adults from across the country who share your desire for deeper faith and authentic Christian community.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPEAKERS SECTION -->
+    <section id="speakers" class="section section-dark">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Meet Your <span class="accent">Speakers</span></h2>
+            </div>
+            
+            <div class="speakers-grid">
+                <div class="speaker-card fade-in">
+                    <img src="/img/mn.webp" alt="Mother Natalia" class="speaker-image">
+                    <div class="speaker-content">
+                        <h3 class="speaker-name">Mother Natalia</h3>
+                        <p class="speaker-title">Christ the Bridegroom Monastery, Burton, Ohio</p>
+                       <!--  <p class="speaker-bio">speaker bio</p>
+                        <div class="speaker-talk">
+                            <div class="speaker-talk-label">Talk Topic</div>
+                            <div class="speaker-talk-title">"The Theotokos: Model of Monastic Surrender in the Modern World"</div>
+						-->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- more speaker cards here following the same structure -->
+                <!-- template for each speaker:
+                
+                <div class="speaker-card fade-in">
+                    <img src="/img/your-speaker-photo.jpg" alt="Speaker Name" class="speaker-image">
+                    <div class="speaker-content">
+                        <h3 class="speaker-name">Speaker Full Name</h3>
+                        <p class="speaker-title">Their Title/Position</p>
+                        <p class="speaker-bio">A brief bio about the speaker, their background, and what makes them qualified to speak on this topic.</p>
+                        <div class="speaker-talk">
+                            <div class="speaker-talk-label">Talk Topic</div>
+                            <div class="speaker-talk-title">"Title of Their Specific Talk"</div>
+                        </div>
+                    </div>
+                </div>
+                
+                -->
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- VENUE SECTION -->
+    <section id="venue" class="section section-light">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">St. Mary <span class="accent">Byzantine Catholic</span> Church</h2>
+            </div>
+            
+            <div class="venue-content">
+                <div class="venue-info fade-in">
+                    <p><strong>Location:</strong> 1900 Brooks Boulevard, Hillsborough, New Jersey 08844<br>
+                    <strong>Accommodations:</strong> Multiple lodging options within 10 minutes<br>
+                    <strong>Parking:</strong> Plenty of on-site parking</p>
+                </div>
+                
+                <div class="venue-image fade-in">
+                    <img src="/img/st-mary-external-1.jpg" alt="St. Mary Church Exterior with Golden Domes" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REGISTRATION INTEREST SECTION -->
+    <section id="register" class="section registration">
+        <div class="container">
+            <div class="reg-container">
+                <div class="section-header fade-in">
+                    <div class="section-subtitle">Stay Updated</div>
+                    <h2 class="section-title">Register Your <span class="accent">Interest</span></h2>
+                    <p class="section-description">Full registration opens soon. Sign up now to be the first to know!</p>
+                </div>
+                
+                <form class="reg-form fade-in" id="interestForm"
+				  action="https://formspree.io/f/mzzwbnze"
+				  method=POST
+				>
+                    <div class="form-group">
+                        <label for="name" class="form-label">Your Name *</label>
+                        <input type="text" id="name" name="name" class="form-input" placeholder="Full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address *</label>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="your.email@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="parish" class="form-label">Home Parish (Optional)</label>
+                        <input type="text" id="parish" name="parish" class="form-input" placeholder="Which parish community do you call home?">
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-envelope"></i> Keep Me Updated
+                    </button>
+                </form>
+
+                <div style="text-align: center; margin-top: 2rem; opacity: 0.9;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRACTICAL SECTION -->
+    <section id="practical" class="section section-accent">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Travel & <span class="accent">Logistics</span></h2>
+            </div>
+
+            <div class="practical-intro fade-in">
+                <div class="practical-intro-text">
+                    <p>We've designed this to be as accessible as possible for young adults from across the region. Hillsborough has great airport and highway access, plus multiple accommodation options for every budget.</p>
+                    <p><strong>Need-based scholarships available</strong></p>
+                </div>
+                <div class="practical-intro-image">
+                    <img src="/img/mosaic.jpg" alt="Travel and logistics illustration" />
+                </div>
+            </div>
+            
+            <div class="practical-grid">
+                <div class="practical-card fade-in">
+                    <h3>Getting There</h3>
+                    <p><strong>Closest Airport:</strong> Newark Liberty (EWR) - 45 minutes<br>
+                    <strong>Alternatives:</strong> JFK (1 hour) or Philadelphia (1.5 hours)<br>
+                    <strong>By Car:</strong> Easy access from I-287 and Route 206<br>
+                    <strong>Public Transit:</strong> NJ Transit connections available</p>
+                </div>
+                
+                <div class="practical-card fade-in">
+                    <h3>Where to Stay</h3>
+                    <p><strong>Local Hotels:</strong> Comfortable options within 10 minutes<br>
+                    <strong>Help Available:</strong> Detailed recommendations upon registration</p>
+                </div>
+                
+                <div class="practical-card fade-in">
+                    <h3>Cost</h3>
+                    <p><strong>Registration:</strong> $[Amount TBA]<br>
+                    <strong>Includes:</strong> All meals, materials, prayer booklets, programming<br>
+                    <strong>Scholarships:</strong> Need-based assistance available—just ask<br>
+                    <strong>Group Rates:</strong> Special pricing for parish groups of 5+</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         SHARE SECTION
+         ===================================================== -->
+    <section id="share" class="section share-section">
+        <div class="container">
+            <div class="share-content">
+                <div class="section-header fade-in">
+                    <h2 class="section-title">Help <span class="accent">Spread the Word</span></h2>
+                    <p class="share-intro">Be a messenger! Help us reach young adults who need to hear about this convocation. Download our flyer for your parish bulletin board, or share on social media.</p>
+                </div>
+
+                <div class="share-actions">
+                    <div class="share-card fade-in">
+                        <div class="share-icon">
+                            <i class="fas fa-print"></i>
+                        </div>
+                        <h3>Print & Post</h3>
+                        <p>Download our flyer and place it in your parish or campus ministry center.</p>
+                        <a href="/flyer.pdf" class="share-card-btn" download>
+                            <i class="fas fa-download"></i> Download Flyer (PDF)
+                        </a>
+                    </div>
+
+                    <div class="share-card fade-in">
+                        <div class="share-icon">
+                            <i class="fas fa-share-nodes"></i>
+                        </div>
+                        <h3>Share on Social</h3>
+                        <p>Tell your friends on Facebook and Instagram about the convocation. Every share helps!</p>
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/theosisinaction/" class="social-link facebook" id="shareCardFacebook" title="Share on Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/theosisinaction/" class="social-link instagram" id="shareCardInstagram" title="Share on Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid fade-in">
+                <div class="footer-section">
+                    <h3>Get in Touch</h3>
+                    <a href="mailto:theosisinaction@gmail.com">✉ theosisinaction@gmail.com</a>
+                </div>
+                <div class="footer-section">
+                    <h3>St. Mary Byzantine Catholic Church</h3>
+                    <p>1900 Brooks Boulevard</p>
+                    <p>Hillsborough, New Jersey</p>
+                    <a href="https://www.stmaryhillsboroughnj.org/" target="_blank">Visit Parish Website</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Stay Connected</h3>
+                    <a href="https://www.instagram.com/theosisinaction/" target="_blank">Follow on Instagram</a>
+                    <a href="https://www.facebook.com/theosisinaction/" target="_blank">Join Facebook Community</a>
+                </div>
+            </div>
+            <div class="footer-bottom fade-in">
+                <p>&copy; 2025 Theosis in Action.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Banner functionality
+        const closeBanner = document.getElementById('closeBanner');
+        const announcementBanner = document.getElementById('announcementBanner');
+        
+        closeBanner.addEventListener('click', () => {
+            announcementBanner.style.display = 'none';
+            document.body.classList.remove('banner-visible');
+            localStorage.setItem('bannerClosed', 'true');
+        });
+
+        // Check if banner was previously closed
+        if (localStorage.getItem('bannerClosed') === 'true') {
+            announcementBanner.style.display = 'none';
+            document.body.classList.remove('banner-visible');
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = document.getElementById('header').offsetHeight;
+                    const bannerHeight = announcementBanner.style.display === 'none' ? 0 : 50;
+                    const targetPosition = target.offsetTop - headerHeight - bannerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    document.getElementById('mobileNav').classList.remove('active');
+                }
+            });
+        });
+
+        // Mobile menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const closeMobileNav = document.getElementById('closeMobileNav');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.add('active');
+        });
+
+        closeMobileNav.addEventListener('click', () => {
+            mobileNav.classList.remove('active');
+        });
+
+        document.querySelectorAll('.mobile-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+            });
+        });
+
+        mobileNav.addEventListener('click', (e) => {
+            if (e.target === mobileNav) {
+                mobileNav.classList.remove('active');
+            }
+        });
+
+        // Progress bar
+        function updateProgressBar() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        }
+
+        window.addEventListener('scroll', updateProgressBar);
+
+        // Intersection observer
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -30px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, 50);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach((el, index) => {
+            observer.observe(el);
+            if (el.closest('.features-grid, .practical-grid, .schedule-grid')) {
+                el.style.transitionDelay = `${index * 0.05}s`;
+            }
+        });
+
+        // Header scroll effect
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (currentScroll > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            if (window.innerWidth <= 768) {
+                if (currentScroll > lastScrollTop && currentScroll > 100) {
+                    header.style.transform = 'translateY(-100%)';
+                } else {
+                    header.style.transform = 'translateY(0)';
+                }
+            }
+            
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+        });
+
+        // Form submission
+		document.getElementById('interestForm').addEventListener('submit', function(e) {
+    		e.preventDefault();
+    
+    		const formData = new FormData(this);
+    		const submitBtn = this.querySelector('.submit-btn');
+    		const originalText = submitBtn.innerHTML;
+    
+    		// Validate
+    		const name = document.getElementById('name');
+    		const email = document.getElementById('email');
+    		let isValid = true;
+    
+    		if (!name.value.trim()) {
+        		name.style.borderColor = '#ef4444';
+        		isValid = false;
+    		} else {
+        		name.style.borderColor = 'rgba(255, 255, 255, 0.5)';
+    		}
+    
+    		if (!email.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+        		email.style.borderColor = '#ef4444';
+        		isValid = false;
+    		} else {
+        		email.style.borderColor = 'rgba(255, 255, 255, 0.5)';
+    		}
+    
+    		if (!isValid) {
+        		submitBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Please check your information';
+        		submitBtn.style.background = '#ef4444';
+        		setTimeout(() => {
+            		submitBtn.innerHTML = originalText;
+            		submitBtn.style.background = 'var(--icon-gold)';
+        		}, 3000);
+        		return;
+    		}
+    
+    		// Show submitting state
+    		submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+    		submitBtn.style.background = 'rgba(212, 175, 55, 0.7)';
+    		submitBtn.disabled = true;
+    
+    		// Actually submit to Formspree
+    		fetch(this.action, {
+        		method: 'POST',
+        		body: formData,
+        		headers: {
+            		'Accept': 'application/json'
+        		}
+    		})
+    		.then(response => {
+        		if (response.ok) {
+            		submitBtn.innerHTML = '✓ Success! We will let you know when registration opens.';
+            		submitBtn.style.background = '#10B981';
+            
+            		setTimeout(() => {
+                		this.reset();
+                		submitBtn.innerHTML = originalText;
+                		submitBtn.style.background = 'var(--icon-gold)';
+                		submitBtn.disabled = false;
+            		}, 1500);
+        		} else {
+            		throw new Error('Submission failed');
+        		}
+    		})
+    		.catch(error => {
+        		submitBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error - Please try again';
+        		submitBtn.style.background = '#ef4444';
+        		setTimeout(() => {
+            		submitBtn.innerHTML = originalText;
+            		submitBtn.style.background = 'var(--icon-gold)';
+            		submitBtn.disabled = false;
+        		}, 3000);
+    		});
+		});
+
+        // Keyboard accessibility
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.getElementById('mobileNav').classList.remove('active');
+            }
+        });
+
+        // Initialize animations on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const elementsInView = document.querySelectorAll('.fade-in');
+            elementsInView.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    el.classList.add('visible');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
