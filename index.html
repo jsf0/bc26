@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;1,400&display=swap');
-        
+
         /* CSS VARIABLES */
         :root {
             --icon-gold: #D4AF37;
@@ -1340,6 +1340,59 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
+        /* FAQ SECTION */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-md);
+        }
+
+        .faq-card {
+            background: white;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 16px;
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .faq-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--icon-gold), var(--icon-gold-light));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .faq-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-medium);
+            border-color: var(--icon-gold);
+        }
+
+        .faq-card h3 {
+            font-family: var(--font-heading);
+            color: var(--icon-blue-deep);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .faq-card p {
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+
         /* FOOTER */
         footer {
             background: #1e3a8a;
@@ -1489,7 +1542,8 @@
                     <li><a href="#venue">Venue</a></li>
                     <li><a href="#register">Register Interest</a></li>
                     <li><a href="#practical">Travel</a></li>
-					<li><a href="#share">Share</a></li>
+                    <li><a href="#share">Share</a></li>
+                    <li><a href="#faq">FAQ</a></li>
                 </ul>
                 <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation menu">☰</button>
             </nav>
@@ -1510,7 +1564,7 @@
     <!-- HERO SECTION -->
     <section class="hero">
         <img src="/img/st-mary-external-1.jpg" alt="Background" class="hero-bg-image">
-        
+
         <div class="hero-content">
             <div class="hero-subtitle">Young Adult Convocation 2026</div>
             <h1>The <span class="highlight">Heart</span> of the<br>God-Bearer</h1>
@@ -1531,19 +1585,19 @@
                 <h2 class="section-title">More Than a <span class="accent">Retreat</span></h2>
                 <p class="section-description">This is about discovering your calling as a God-Bearer and living it boldly</p>
             </div>
-            
+
             <div class="about-grid">
                 <div class="about-content fade-in">
                     <p>What does it mean to live with Mary's heart? To hold nothing back from God, no matter what your life looks like?</p>
-                    
+
                     <div class="highlight-box">
 "Let it be done unto me according to your word."
 -Luke 1:38
                     </div>
-                    <p>Join us for the 2026 Byzantine Catholic Young Adult Convocation, on July 31-August 2, where we will discover how her monastic heart can become ours.</p> 
-                    
+                    <p>Join us for the 2026 Byzantine Catholic Young Adult Convocation, on July 31-August 2, where we will discover how her monastic heart can become ours.</p>
+
                 </div>
-                
+
                 <div class="church-image fade-in">
                     <img src="/img/st-mary-tetrapod.jpg" alt="Tetrapod at St. Mary Byzantine Catholic Church" />
                 </div>
@@ -1567,7 +1621,7 @@
                     <img src="/img/st-mary-liturgy.jpg" alt="Divine Liturgy at St Mary's" />
                 </div>
             </div>
-            
+
             <div class="schedule-grid">
                 <div class="day-card fade-in">
                     <div class="day-header">
@@ -1586,13 +1640,13 @@
                             <span class="time">6:00 PM</span>
                             <span class="activity">Talk</span>
                         </div>
-						<div class="schedule-item">
-							<span class="time">7:00 PM</span>
-							<span class="activity">Compline</span>
-						</div>
+                                                <div class="schedule-item">
+                                                        <span class="time">7:00 PM</span>
+                                                        <span class="activity">Compline</span>
+                                                </div>
                     </div>
                 </div>
-                
+
                 <div class="day-card fade-in">
                     <div class="day-header">
                         <h3>Saturday</h3>
@@ -1644,7 +1698,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="day-card fade-in">
                     <div class="day-header">
                         <h3>Sunday</h3>
@@ -1674,18 +1728,18 @@
             <div class="section-header fade-in">
                 <h2 class="section-title">Three <span class="accent">Pillars</span></h2>
             </div>
-            
+
             <div class="features-grid">
                 <div class="feature-card fade-in">
                     <h3 class="feature-title">Liturgical Hours</h3>
                     <p class="feature-description">Pray with the Church with 3rd, 6th, and 9th hours, Vespers, and Compline forming the core of our weekend.</p>
                 </div>
-                
+
                 <div class="feature-card fade-in">
                     <h3 class="feature-title">Formation Talks</h3>
                     <p class="feature-description">Three substantial talks exploring the Theotokos as the model monastic heart and your calling to be a God-bearer in the world.</p>
                 </div>
-                
+
                 <div class="feature-card fade-in">
                     <h3 class="feature-title">Community</h3>
                     <p class="feature-description">Connect with young adults who share your desire for deeper faith and authentic Christian community.</p>
@@ -1700,7 +1754,7 @@
             <div class="section-header fade-in">
                 <h2 class="section-title">Meet Your <span class="accent">Speakers</span></h2>
             </div>
-            
+
             <div class="speakers-grid">
                 <!-- EXAMPLE SPEAKER CARD - Replace with your actual speakers -->
                 <div class="speaker-card fade-in">
@@ -1716,12 +1770,12 @@
                             <div class="speaker-talk-title">"The Theotokos: Model of Monastic Surrender in the Modern World"</div>
                         </div>
                     </div>
-				-->
+                                -->
                 </div>
 
                 <!-- speaker cards here following the same structure -->
                 <!-- template for each speaker:
-                
+
                 <div class="speaker-card fade-in">
                     <div class="speaker-image-container">
                         <img src="/img/your-speaker-photo.jpg" alt="Speaker Name" class="speaker-image">
@@ -1736,9 +1790,9 @@
                         </div>
                     </div>
                 </div>
-                
+
                 -->
-                
+
             </div>
         </div>
     </section>
@@ -1749,14 +1803,14 @@
             <div class="section-header fade-in">
                 <h2 class="section-title">St. Mary <span class="accent">Byzantine Catholic</span> Church</h2>
             </div>
-            
+
             <div class="venue-content">
                 <div class="venue-info fade-in">
                     <p><strong>Location:</strong><a href="https://www.google.com/maps/place/St.+Mary+Byzantine+Catholic+Church/@40.5429158,-74.606501,17z/data=!3m1!4b1!4m6!3m5!1s0x89c3ea98703ba397:0x15687208981bba98!8m2!3d40.5429118!4d-74.6039261!16s%2Fg%2F1tfzn8k3?entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D">1900 Brooks Boulevard, Hillsborough, New Jersey 08844</a><br>
                     <strong>Accommodations:</strong> Multiple lodging options within 10 minutes<br>
                     <strong>Parking:</strong> Plenty of on-site parking</p>
                 </div>
-                
+
                 <div class="venue-image fade-in">
                     <img src="/img/st-mary-external-1.jpg" alt="St. Mary Church Exterior with Golden Domes" />
                 </div>
@@ -1773,11 +1827,11 @@
                     <h2 class="section-title">Register Your <span class="accent">Interest</span></h2>
                     <p class="section-description">Full registration opens soon. Sign up now to be the first to know!</p>
                 </div>
-                
+
                 <form class="reg-form fade-in" id="interestForm"
-				  action="https://formspree.io/f/mzzwbnze"
-				  method=POST
-				>
+                                  action="https://formspree.io/f/mzzwbnze"
+                                  method=POST
+                                >
                     <div class="form-group">
                         <label for="name" class="form-label">Your Name *</label>
                         <input type="text" id="name" name="name" class="form-input" placeholder="Full name" required>
@@ -1820,7 +1874,7 @@
                     <img src="/img/mosaic.jpg" alt="Travel and logistics illustration" />
                 </div>
             </div>
-            
+
             <div class="practical-grid">
                 <div class="practical-card fade-in">
                     <h3>Getting There</h3>
@@ -1829,13 +1883,13 @@
                     <strong>By Car:</strong> Easy access from I-287 and Route 206<br>
                     <strong>Public Transit:</strong> NJ Transit connections available</p>
                 </div>
-                
+
                 <div class="practical-card fade-in">
                     <h3>Where to Stay</h3>
                     <p><strong>Local Hotels:</strong> Comfortable options within 10 minutes<br>
                     <strong>Help Available:</strong> Detailed recommendations upon registration</p>
                 </div>
-                
+
                 <div class="practical-card fade-in">
                     <h3>Cost</h3>
                     <p><strong>Registration:</strong> $[Amount TBA]<br>
@@ -1890,6 +1944,54 @@
         </div>
     </section>
 
+    <!-- FAQ SECTION -->
+    <section id="faq" class="section section-light">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Frequently Asked <span class="accent">Questions</span></h2>
+            </div>
+
+            <div class="faq-grid">
+                <div class="faq-card fade-in">
+                    <h3>Who is this convocation for?</h3>
+                    <p>This weekend is for Catholic young adults (generally ages 18–35) who desire deeper prayer, community, and a life offered fully to God, even if you are unsure how this looks or have questions.</p>
+                </div>
+
+                <div class="faq-card fade-in">
+                    <h3>Do I have to be Byzantine Catholic?</h3>
+                    <p>No. The convocation is rooted in the Byzantine Catholic tradition, but anyone of any faith background is welcome. As the Byzantine Catholic Church is in full communion with the Catholic churches, Roman Catholics also fulfill their Sunday Mass obligation by attending Divine Liturgy with us.</p>
+                </div>
+
+                <div class="faq-card fade-in">
+                    <h3>What about age limits?</h3>
+                    <p>The event is designed for young adults. If you are around the 18–35 range and are serious about growing in your faith, you are in the right place. Minors must be accompanied by a parent or guardian and should contact us before registering.</p>
+                </div>
+
+                <div class="faq-card fade-in">
+                    <h3>Is housing included?</h3>
+                    <p>Housing is not included in the registration fee, but there are several hotels within a short drive of the parish. Once you register, we will send suggested lodging options and, where possible, information about ride or room–sharing.</p>
+                </div>
+
+                <div class="faq-card fade-in">
+                    <h3>What if I cannot afford the full cost?</h3>
+                    <p>Please do not let cost be the reason you stay home. Need-based scholarships and assistance are available. There is a place on the registration form to request help, or you can email us directly with your situation.</p>
+                </div>
+
+                <div class="faq-card fade-in">
+                    <h3>When will full registration open?</h3>
+                    <p>Full registration will open in 2026. If you use the “Register Interest” form above, you will be among the first to receive the final dates, schedule details, and pricing before we announce it publicly.</p>
+                </div>
+
+                <div class="faq-card fade-in">
+                    <h3>What should I expect spiritually?</h3>
+                    <p>Expect a weekend centered on liturgical prayer, silence, and solid teaching, rather than a conference with constant noise. There will be plenty of time for fellowship, Q&amp;A, and meeting other young adults.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
     <!-- FOOTER -->
     <footer>
         <div class="container">
@@ -1921,7 +2023,7 @@
         // Banner functionality
         const closeBanner = document.getElementById('closeBanner');
         const announcementBanner = document.getElementById('announcementBanner');
-        
+
         closeBanner.addEventListener('click', () => {
             announcementBanner.style.display = 'none';
             document.body.classList.remove('banner-visible');
@@ -1943,12 +2045,12 @@
                     const headerHeight = document.getElementById('header').offsetHeight;
                     const bannerHeight = announcementBanner.style.display === 'none' ? 0 : 50;
                     const targetPosition = target.offsetTop - headerHeight - bannerHeight - 20;
-                    
+
                     window.scrollTo({
                         top: targetPosition,
                         behavior: 'smooth'
                     });
-                    
+
                     document.getElementById('mobileNav').classList.remove('active');
                 }
             });
@@ -2017,13 +2119,13 @@
         window.addEventListener('scroll', () => {
             const header = document.getElementById('header');
             const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-            
+
             if (currentScroll > 50) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
             }
-            
+
             if (window.innerWidth <= 768) {
                 if (currentScroll > lastScrollTop && currentScroll > 100) {
                     header.style.transform = 'translateY(-100%)';
@@ -2031,85 +2133,85 @@
                     header.style.transform = 'translateY(0)';
                 }
             }
-            
+
             lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
         });
 
         // Form submission
-		document.getElementById('interestForm').addEventListener('submit', function(e) {
-    		e.preventDefault();
-    
-    		const formData = new FormData(this);
-    		const submitBtn = this.querySelector('.submit-btn');
-    		const originalText = submitBtn.innerHTML;
-    
-    		// Validate
-    		const name = document.getElementById('name');
-    		const email = document.getElementById('email');
-    		let isValid = true;
-    
-    		if (!name.value.trim()) {
-        		name.style.borderColor = '#ef4444';
-        		isValid = false;
-    		} else {
-        		name.style.borderColor = 'rgba(255, 255, 255, 0.5)';
-    		}
-    
-    		if (!email.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
-        		email.style.borderColor = '#ef4444';
-        		isValid = false;
-    		} else {
-        		email.style.borderColor = 'rgba(255, 255, 255, 0.5)';
-    		}
-    
-    		if (!isValid) {
-        		submitBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Please check your information';
-        		submitBtn.style.background = '#ef4444';
-        		setTimeout(() => {
-            		submitBtn.innerHTML = originalText;
-            		submitBtn.style.background = 'var(--icon-gold)';
-        		}, 3000);
-        		return;
-    		}
-    
-    		// Show submitting state
-    		submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
-    		submitBtn.style.background = 'rgba(212, 175, 55, 0.7)';
-    		submitBtn.disabled = true;
-    
-    		// Actually submit to Formspree
-    		fetch(this.action, {
-        		method: 'POST',
-        		body: formData,
-        		headers: {
-            		'Accept': 'application/json'
-        		}
-    		})
-    		.then(response => {
-        		if (response.ok) {
-            		submitBtn.innerHTML = '✓ Success! We will let you know when registration opens.';
-            		submitBtn.style.background = '#10B981';
-            
-            		setTimeout(() => {
-                		this.reset();
-                		submitBtn.innerHTML = originalText;
-                		submitBtn.style.background = 'var(--icon-gold)';
-                		submitBtn.disabled = false;
-            		}, 1500);
-        		} else {
-            		throw new Error('Submission failed');
-        		}
-    		})
-    		.catch(error => {
-        		submitBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error - Please try again';
-        		submitBtn.style.background = '#ef4444';
-        		setTimeout(() => {
-            		submitBtn.innerHTML = originalText;
-            		submitBtn.style.background = 'var(--icon-gold)';
-            		submitBtn.disabled = false;
-        		}, 3000);
-    		});
-		});
+                document.getElementById('interestForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const formData = new FormData(this);
+                const submitBtn = this.querySelector('.submit-btn');
+                const originalText = submitBtn.innerHTML;
+
+                // Validate
+                const name = document.getElementById('name');
+                const email = document.getElementById('email');
+                let isValid = true;
+
+                if (!name.value.trim()) {
+                        name.style.borderColor = '#ef4444';
+                        isValid = false;
+                } else {
+                        name.style.borderColor = 'rgba(255, 255, 255, 0.5)';
+                }
+
+                if (!email.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+                        email.style.borderColor = '#ef4444';
+                        isValid = false;
+                } else {
+                        email.style.borderColor = 'rgba(255, 255, 255, 0.5)';
+                }
+
+                if (!isValid) {
+                        submitBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Please check your information';
+                        submitBtn.style.background = '#ef4444';
+                        setTimeout(() => {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.style.background = 'var(--icon-gold)';
+                        }, 3000);
+                        return;
+                }
+
+                // Show submitting state
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+                submitBtn.style.background = 'rgba(212, 175, 55, 0.7)';
+                submitBtn.disabled = true;
+
+                // Actually submit to Formspree
+                fetch(this.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                        'Accept': 'application/json'
+                        }
+                })
+                .then(response => {
+                        if (response.ok) {
+                        submitBtn.innerHTML = '✓ Success! We will let you know when registration opens.';
+                        submitBtn.style.background = '#10B981';
+
+                        setTimeout(() => {
+                                this.reset();
+                                submitBtn.innerHTML = originalText;
+                                submitBtn.style.background = 'var(--icon-gold)';
+                                submitBtn.disabled = false;
+                        }, 1500);
+                        } else {
+                        throw new Error('Submission failed');
+                        }
+                })
+                .catch(error => {
+                        submitBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error - Please try again';
+                        submitBtn.style.background = '#ef4444';
+                        setTimeout(() => {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.style.background = 'var(--icon-gold)';
+                        submitBtn.disabled = false;
+                        }, 3000);
+                });
+                });
 
         // Keyboard accessibility
         document.addEventListener('keydown', function(e) {
