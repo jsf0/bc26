@@ -330,6 +330,20 @@
             cursor: pointer;
         }
 
+        footer a[href^="mailto:"],
+        .practical-grid a[href^="mailto:"],
+        .reg-details-grid a[href^="mailto:"] {
+            color: var(--icon-gold);
+            font-weight: 600;
+        }
+
+        footer a[href^="mailto:"]:hover,
+        .practical-grid a[href^="mailto:"]:hover,
+        .reg-details-grid a[href^="mailto:"]:hover {
+            color: var(--icon-gold-light);
+            text-decoration: underline;
+        }
+
         /* HERO */
         .hero {
             min-height: 100vh;
@@ -977,7 +991,7 @@
             object-fit: cover;
         }
 
-        /* REGISTRATION SECTION - SIMPLIFIED */
+        /* REGISTRATION SECTION - UPDATED TO FULL REGISTRATION */
         .registration {
             background: linear-gradient(135deg, var(--icon-blue-deep), var(--icon-blue-medium));
             color: var(--text-light);
@@ -985,7 +999,7 @@
         }
 
         .reg-container {
-            max-width: 700px;
+            max-width: 900px;
             margin: 0 auto;
             position: relative;
             z-index: 2;
@@ -1009,75 +1023,144 @@
         }
 
         .reg-info-box p {
-            font-size: 1.2rem;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 1.25rem;
+            opacity: 0.95;
         }
 
-        .reg-form {
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.3);
-            border-radius: 16px;
-            padding: var(--space-lg);
+        .reg-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1.25rem;
         }
 
-        .form-group {
-            margin-bottom: var(--space-md);
-            text-align: left;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: var(--space-xs);
-            font-family: var(--font-heading);
-            font-weight: 600;
-            color: var(--icon-gold);
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid rgba(255, 255, 255, 0.5);
-            border-radius: 8px;
-            font-size: 1rem;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            font-family: var(--font-body);
-            transition: all 0.3s ease;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: var(--icon-gold);
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
-        }
-
-        .form-input::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 1.2rem;
+        .reg-primary-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.65rem;
             background: var(--icon-gold);
             color: var(--icon-blue-deep);
-            border: none;
-            border-radius: 8px;
+            padding: 1rem 2.2rem;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 700;
             font-size: 1.1rem;
-            font-family: var(--font-heading);
-            font-weight: 600;
-            cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            position: relative;
+            overflow: hidden;
         }
 
-        .submit-btn:hover {
+        .reg-primary-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent);
+            transition: left 0.5s;
+        }
+
+        .reg-primary-btn:hover::before {
+            left: 100%;
+        }
+
+        .reg-primary-btn:hover {
             background: var(--icon-gold-light);
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .reg-secondary-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            color: white;
+            padding: 1rem 2.2rem;
+            text-decoration: none;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            font-weight: 400;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .reg-secondary-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--icon-gold);
+            transform: translateY(-2px);
+        }
+
+        .reg-details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-md);
+        }
+
+        .reg-detail-card {
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: left;
+            box-shadow: 0 6px 22px rgba(0,0,0,0.18);
+            transition: all 0.3s ease;
+        }
+
+        .reg-detail-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(212, 175, 55, 0.7);
+            background: rgba(255,255,255,0.16);
+        }
+
+        .reg-detail-title {
+            font-family: var(--font-heading);
+            color: var(--icon-gold);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .reg-detail-card p, .reg-detail-card ul {
+            color: rgba(255,255,255,0.92);
+            opacity: 0.95;
+            line-height: 1.65;
+            font-size: 1.02rem;
+        }
+
+        .reg-detail-card ul {
+            padding-left: 1.1rem;
+            margin-top: 0.6rem;
+        }
+
+        .reg-detail-card li {
+            margin: 0.35rem 0;
+        }
+
+        .reg-note {
+            margin-top: 1.25rem;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .reg-note a {
+            color: var(--icon-gold);
+            text-decoration: none;
+            border-bottom: 1px dotted rgba(212, 175, 55, 0.8);
+        }
+
+        .reg-note a:hover {
+            border-bottom-style: solid;
         }
 
         /* PRACTICAL SECTION */
@@ -1508,8 +1591,10 @@
     <!-- Announcement Banner -->
     <div class="announcement-banner" id="announcementBanner">
         <div class="announcement-banner-content">
-            <span class="announcement-text">Full registration opens soon! Get updates first</span>
-            <a href="#register" class="banner-cta">Sign Up for Updates</a>
+            <span class="announcement-icon"><i class="fa-solid fa-ticket"></i></span>
+            <span class="announcement-text">Registration is live for Heart of the God-Bearer 2026!</span>
+            <a href="https://www.eventbrite.com/e/2026-byzantine-catholic-young-adult-convocation-heart-of-the-god-bearer-registration-1976526789835?aff=website-banner"
+               class="banner-cta" target="_blank" rel="noopener">Register Now</a>
         </div>
         <button class="close-banner" id="closeBanner" aria-label="Close announcement">×</button>
     </div>
@@ -1540,7 +1625,7 @@
                     <li><a href="#schedule">Schedule</a></li>
                     <li><a href="#speakers">Speakers</a></li>
                     <li><a href="#venue">Venue</a></li>
-                    <li><a href="#register">Register Interest</a></li>
+                    <li><a href="#register">Registration</a></li>
                     <li><a href="#practical">Travel</a></li>
                     <li><a href="#share">Share</a></li>
                     <li><a href="#faq">FAQ</a></li>
@@ -1557,7 +1642,7 @@
         <a href="#schedule">Schedule</a>
         <a href="#speakers">Speakers</a>
         <a href="#venue">Venue</a>
-        <a href="#register">Register Interest</a>
+        <a href="#register">Registration</a>
         <a href="#practical">Travel</a>
         <a href="#share">Share</a>
         <a href="#faq">FAQ</a>
@@ -1574,7 +1659,10 @@
             <p class="hero-timing">July 31-August 2, 2026</p>
             <p class="hero-date">St. Mary Byzantine Catholic Church • Hillsborough, NJ</p>
             <div class="cta-container">
-                <a href="#register" class="cta-primary">Get Updates</a>
+                <a href="https://www.eventbrite.com/e/2026-byzantine-catholic-young-adult-convocation-heart-of-the-god-bearer-registration-1976526789835?aff=website-hero"
+                   class="cta-primary" target="_blank" rel="noopener">
+                    <i class="fa-solid fa-ticket"></i> Register Now
+                </a>
                 <a href="#about" class="cta-secondary">Learn More</a>
             </div>
         </div>
@@ -1711,11 +1799,11 @@
                             <span class="activity">Divine Liturgy</span>
                         </div>
                         <div class="schedule-item">
-                            <span class="time">10:00 AM</span>
+                            <span class="time">10:00 PM</span>
                             <span class="activity">Breakfast</span>
                         </div>
                         <div class="schedule-item">
-                            <span class="time">11:00 AM</span>
+                            <span class="time">11:00 PM</span>
                             <span class="activity">Send-off Talk</span>
                         </div>
                     </div>
@@ -1820,42 +1908,86 @@
         </div>
     </section>
 
-    <!-- REGISTRATION INTEREST SECTION -->
+    <!-- REGISTRATION SECTION (REPLACES INTEREST FORM) -->
     <section id="register" class="section registration">
         <div class="container">
             <div class="reg-container">
                 <div class="section-header fade-in">
-                    <div class="section-subtitle">Stay Updated</div>
-                    <h2 class="section-title">Register Your <span class="accent">Interest</span></h2>
-                    <p class="section-description">Full registration opens soon. Sign up now to be the first to know!</p>
+                    <div class="section-subtitle">Now Open</div>
+                    <h2 class="section-title">Complete Your <span class="accent">Registration</span></h2>
+                    <p class="section-description">Reserve your spot for <em>The Heart of the God-Bearer</em>. Registration is handled securely through Eventbrite.</p>
                 </div>
 
+                <div class="reg-info-box fade-in">
+                    <h3><i class="fa-solid fa-ticket"></i> Register on Eventbrite</h3>
+                    <p>
+                        Click below to register for the 2026 Byzantine Catholic Young Adult Convocation.
+                        You’ll be able to choose tickets, enter attendee details, and complete payment (if applicable) on Eventbrite.
+                    </p>
+
+                    <div class="reg-actions">
+                        <a class="reg-primary-btn"
+                           href="https://www.eventbrite.com/e/2026-byzantine-catholic-young-adult-convocation-heart-of-the-god-bearer-registration-1976526789835?aff=website-registration"
+                           target="_blank" rel="noopener">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Go to Registration
+                        </a>
+
+                        <a class="reg-secondary-btn" href="#practical">
+                            <i class="fa-solid fa-suitcase"></i> Travel & Logistics
+                        </a>
+                    </div>
+
+                    <div class="reg-details-grid">
+                        <div class="reg-detail-card">
+                            <div class="reg-detail-title"><i class="fa-solid fa-calendar-days"></i> Dates</div>
+                            <p>July 31 – August 2, 2026</p>
+                        </div>
+
+                        <div class="reg-detail-card">
+                            <div class="reg-detail-title"><i class="fa-solid fa-location-dot"></i> Location</div>
+                            <p>St. Mary Byzantine Catholic Church<br>Hillsborough, NJ</p>
+                        </div>
+
+                        <div class="reg-detail-card">
+                            <div class="reg-detail-title"><i class="fa-solid fa-coins"></i>Cost</div>
+    			    <p>
+        		       <strong>Single Registration:</strong> $215<br>
+                               <strong>Married Bundle:</strong> $376<br>
+        		       <strong>Clergy & Religious:</strong> $108
+    			    </p>
+    			    <p style="margin-top: 0.75rem;">
+        Registration includes all meals, programming, liturgical services, and materials for the full weekend.
+    			    </p>
+    			    <p style="margin-top: 0.75rem; font-style: italic;">
+        Need-based assistance is available. Please reach out if cost is a barrier.
+    			    </p>
+                        </div>
+<div class="reg-detail-card">
+                            <div class="reg-detail-title"><i class="fa-solid fa-circle-question"></i>
+ Need help?</div>
+                            <p>
+                                Questions about registration or scholarships?<br>
+                                Email <a href="mailto:theosisinaction@gmail.com">theosisinaction@gmai
+l.com</a>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <p class="reg-note">
+                        Prefer to browse first? You can also open the Eventbrite page here:
+                        <a href="https://www.eventbrite.com/e/2026-byzantine-catholic-young-adult-convocation-heart-of-the-god-bearer-registration-1976526789835?aff=website-registration-text"
+                           target="_blank" rel="noopener">Eventbrite registration link</a>.
+                    </p>
+                </div>
+
+                <!-- Optional: keep Formspree as a backup updates list (hidden) -->
+                <!--
                 <form class="reg-form fade-in" id="interestForm"
-                                  action="https://formspree.io/f/mzzwbnze"
-                                  method=POST
-                                >
-                    <div class="form-group">
-                        <label for="name" class="form-label">Your Name *</label>
-                        <input type="text" id="name" name="name" class="form-input" placeholder="Full name" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email" class="form-label">Email Address *</label>
-                        <input type="email" id="email" name="email" class="form-input" placeholder="your.email@example.com" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="parish" class="form-label">Home Parish (Optional)</label>
-                        <input type="text" id="parish" name="parish" class="form-input" placeholder="Which parish community do you call home?">
-                    </div>
-
-                    <button type="submit" class="submit-btn">
-                        <i class="fas fa-envelope"></i> Keep Me Updated
-                    </button>
+                      action="https://formspree.io/f/mzzwbnze"
+                      method="POST"
+                      style="display:none">
                 </form>
-
-                <div style="text-align: center; margin-top: 2rem; opacity: 0.9;">
-                </div>
+                -->
             </div>
         </div>
     </section>
@@ -1894,7 +2026,9 @@
 
                 <div class="practical-card fade-in">
                     <h3>Cost</h3>
-                    <p><strong>Registration:</strong> $[Amount TBA]<br>
+                    <p><strong>Single Registration:</strong>$215<br>
+                    <p><strong>Married Bundle:</strong>$376<br>
+                    <p><strong>Religious:</strong>$108<br>
                     <strong>Includes:</strong> All meals, materials, prayer booklets, programming<br>
                     <strong>Scholarships:</strong> Need-based assistance available—just ask<br>
                     <strong>Group Rates:</strong> Special pricing for parish groups of 5+</p>
@@ -2036,8 +2170,13 @@
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+
+                // Only intercept in-page anchors. Let external links (Eventbrite etc.) behave normally.
+                if (!href || !href.startsWith('#')) return;
+
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const target = document.querySelector(href);
                 if (target) {
                     const headerHeight = document.getElementById('header').offsetHeight;
                     const bannerHeight = announcementBanner.style.display === 'none' ? 0 : 50;
@@ -2134,82 +2273,6 @@
             lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
         });
 
-        // Form submission
-                document.getElementById('interestForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-
-                const formData = new FormData(this);
-                const submitBtn = this.querySelector('.submit-btn');
-                const originalText = submitBtn.innerHTML;
-
-                // Validate
-                const name = document.getElementById('name');
-                const email = document.getElementById('email');
-                let isValid = true;
-
-                if (!name.value.trim()) {
-                        name.style.borderColor = '#ef4444';
-                        isValid = false;
-                } else {
-                        name.style.borderColor = 'rgba(255, 255, 255, 0.5)';
-                }
-
-                if (!email.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
-                        email.style.borderColor = '#ef4444';
-                        isValid = false;
-                } else {
-                        email.style.borderColor = 'rgba(255, 255, 255, 0.5)';
-                }
-
-                if (!isValid) {
-                        submitBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Please check your information';
-                        submitBtn.style.background = '#ef4444';
-                        setTimeout(() => {
-                        submitBtn.innerHTML = originalText;
-                        submitBtn.style.background = 'var(--icon-gold)';
-                        }, 3000);
-                        return;
-                }
-
-                // Show submitting state
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
-                submitBtn.style.background = 'rgba(212, 175, 55, 0.7)';
-                submitBtn.disabled = true;
-
-                // Actually submit to Formspree
-                fetch(this.action, {
-                        method: 'POST',
-                        body: formData,
-                        headers: {
-                        'Accept': 'application/json'
-                        }
-                })
-                .then(response => {
-                        if (response.ok) {
-                        submitBtn.innerHTML = '✓ Success! We will let you know when registration opens.';
-                        submitBtn.style.background = '#10B981';
-
-                        setTimeout(() => {
-                                this.reset();
-                                submitBtn.innerHTML = originalText;
-                                submitBtn.style.background = 'var(--icon-gold)';
-                                submitBtn.disabled = false;
-                        }, 1500);
-                        } else {
-                        throw new Error('Submission failed');
-                        }
-                })
-                .catch(error => {
-                        submitBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error - Please try again';
-                        submitBtn.style.background = '#ef4444';
-                        setTimeout(() => {
-                        submitBtn.innerHTML = originalText;
-                        submitBtn.style.background = 'var(--icon-gold)';
-                        submitBtn.disabled = false;
-                        }, 3000);
-                });
-                });
-
         // Keyboard accessibility
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
@@ -2230,3 +2293,4 @@
     </script>
 </body>
 </html>
+
